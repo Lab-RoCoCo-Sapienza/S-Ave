@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Map Server -->
+  <arg name="map" default="output"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find semantic_maps)/maps/$(arg map).yaml" output="screen"/>
+  
+  <node name="amcl" pkg="amcl" type="amcl">
+    <param name="base_frame_id" value="/base_link"/>
+    <param name="update_min_d" value="-1"/>
+    <param name="update_min_a" value="-1"/>
+    <remap from="scan" to="/scan"/>
+  </node>
+ 
+  <!-- Localizer 
+  <node pkg="srrg_localizer2d_ros" type="srrg_localizer2d_node" respawn="false" name="localizer_node" output="screen">
+    <param name="laser_topic" value="scan"/> 
+  </node>
+  -->  
+
+  <!-- Joy Teleop 
+  <node name="lucrezio_joy_teleop" pkg="thin_joystick_teleop" type="joy_teleop_node" >
+    <param name="command_vel_topic" value="/lucrezio/cmd_vel" />
+  </node>
+  -->
+
+  <!-- Joy Teleop with Safety Controls 
+  <node name="joy_node" pkg="joy" type="joy_node" output="screen" >
+    <param name="~deadzone" type="double" value="0.2"/> 
+    <param name="~autorepeat_rate" type="double" value="20."/> 
+    <param name="~dev" type="str" value="/dev/input/js0"/>	
+  </node>
+
+  <node name="joystick_control" pkg="joystick_control" type="joystick_control" output="screen" >
+    <param name="in_cmd_vel" value="/lucrezio/desired_cmd_vel"/> 
+    <param name="out_cmd_vel" value="/lucrezio/cmd_vel"/> 
+    <param name="joy_topic" value="/joy"/>
+    <param name="joy_linear_speed_scale" value="1"/>
+    <param name="joy_angular_speed_scale" value="1"/>	
+  </node>
+  -->
+  
+  <!-- RVIZ -->
+  <arg name="rvizconfig" default="$(find semantic_maps)/rviz/lucrezio.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>
