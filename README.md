@@ -22,6 +22,6 @@ Open 5 terminal windows and launch the commands here presented by following this
   3. `roslaunch semantic_maps move_base.launch`
   4. `rosrun semantic_maps simulated_platform_node`
   5. `rosrun semantic_maps simulated_ideal_object_detector_node`
-  6. `roslaunch semantic_maps rviz_robot.launch'
+  6. `roslaunch semantic_maps rviz_robot.launch`
   
   
