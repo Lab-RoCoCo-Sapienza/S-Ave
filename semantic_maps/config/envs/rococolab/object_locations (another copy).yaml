@@ -1,0 +1,96 @@
+rococolab_desk_shared:
+  model: desk_shared
+  model_type: sdf
+  position: [ 4.49, -4.15, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_0:
+  model: desk_shared
+  model_type: sdf
+  position: [ 3.07, -4.15, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_1:
+  model: desk_shared
+  model_type: sdf
+  position: [ 4.58, -1.21, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_2:
+  model: desk_shared
+  model_type: sdf
+  position: [ 0.07, -4.15, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_3:
+  model: desk_shared
+  model_type: sdf
+  position: [ 1.54, -4.13, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_4:
+  model: desk_shared
+  model_type: sdf
+  position: [ 3.17, -1.21, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_5:
+  model: desk_shared
+  model_type: sdf
+  position: [ 1.76, -1.21, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_6:
+  model: desk_shared
+  model_type: sdf
+  position: [ -0.15, 3.67, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+rococolab_desk_shared_7:
+  model: desk_shared
+  model_type: sdf
+  position: [ -0.14, 2.24, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+
+
+rococolab_books:
+  model: books
+  model_type: sdf
+  position: [ 3.5, -4.06, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.5 ]
+rococolab_books_0:
+  model: books
+  model_type: sdf
+  position: [ 1.62, -1.20, 0.76 ]
+  orientation: [ 0.0, 0.0, 1.0 ]
+rococolab_books_1:
+  model: books
+  model_type: sdf
+  position: [ -0.25, 2.45, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.8 ]
+
+rococolab_drawer:
+  model: drawer
+  model_type: sdf
+  position: [ -0.44, -2.16, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.6 ]
+rococolab_drawer_0:
+  model: drawer
+  model_type: sdf
+  position: [ 2.44, 4.13, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+
+rococolab_shelf:
+  model: shelf
+  model_type: sdf
+  position: [ 5.18, 3.62, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+rococolab_shelf_0:
+  model: shelf
+  model_type: sdf
+  position: [ 5.14, 2.07, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.54 ]
+
+rococolab_pc:
+  model: pc
+  model_type: sdf
+  position: [ 0.21, 3.31, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+
+ignore_rococolab_grass_robocup:
+  model: grass_robocup
+  model_type: sdf
+  position: [ 2.75, 1.87, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]

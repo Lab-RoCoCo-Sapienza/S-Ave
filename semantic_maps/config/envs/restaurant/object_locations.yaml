@@ -1,0 +1,274 @@
+restaurant_table_2people_0:
+  model: table_restaurant
+  model_type: sdf
+  position: [ -3.0, 7.0, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+restaurant_table_2people_1:
+  model: table_restaurant
+  model_type: sdf
+  position: [ -3.0, 5.15, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+restaurant_table_2people_2:
+  model: table_restaurant
+  model_type: sdf
+  position: [ -3.0, 3.3, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+restaurant_table_4people_0:
+  model: table_restaurant_4people
+  model_type: sdf
+  position: [ -3.0, 0.25, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+restaurant_table_4people_1:
+  model: table_restaurant_4people
+  model_type: sdf
+  position: [ -6.6, 6.3, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+restaurant_table_4people_2:
+  model: table_restaurant_4people
+  model_type: sdf
+  position: [ -6.6, -0.7, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+restaurant_table_6people_0:
+  model: table_restaurant_6people
+  model_type: sdf
+  position: [ -6.6, 2.15, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+restaurant_table_6people_1:
+  model: table_restaurant_6people
+  model_type: sdf
+  position: [ -10.7, 1.15, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+restaurant_table_8people_0:
+  model: table_restaurant_8people
+  model_type: sdf
+  position: [ -10.7, 4.9, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+
+ignore_chair_ikea_0:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -2.15, 7.0, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_1:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -2.15, 5.2, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_2:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -2.15, 3.2, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_3:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -2.15, 1.2, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_4:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -2.15, 0.3, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+
+ignore_chair_ikea_5:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -5.9, 7.2, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_6:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -5.9, 6.4, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_7:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -5.9, 3.9, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_8:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -5.9, 3.0, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_9:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -5.9, 2.2, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_10:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -5.9, 0.0, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_11:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -5.9, -0.8, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+
+ignore_chair_ikea_12:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -10.0, 7.4, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_13:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -10.0, 6.5, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_14:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -10.0, 5.71, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_15:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -10.0, 4.9, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_16:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -10.0, 2.8, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_17:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -10.0, 1.9, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+ignore_chair_ikea_18:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -10.0, 1.1, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+
+ignore_chair_ikea_19:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -3.7, 7.0, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_20:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -3.7, 5.2, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_21:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -3.7, 3.3, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_22:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -3.7, 1.1, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_23:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -3.7, 0.1, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+
+ignore_chair_ikea_24:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -7.5, 7.3, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_25:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -7.5, 6.4, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_26:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -7.5, 3.8, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_27:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -7.5, 3.0, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_28:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -7.5, 2.1, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_29:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -7.5, 0.0, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_30:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -7.5, -0.8, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+
+ignore_chair_ikea_31:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -11.5, 7.4, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_32:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -11.5, 6.5, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_33:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -11.5, 5.7, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_34:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -11.5, 4.8, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_35:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -11.5, 2.8, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_36:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -11.5, 2.0, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+ignore_chair_ikea_37:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -11.5, 1.2, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+
+ignore_chair_ikea_38:
+  model: chair_ikea_borje
+  model_type: sdf
+  position: [ -10.8, 0.2, 0.0 ]
+  orientation: [ 0.0, 0.0, 3.1 ]
+
+
+ignore_desk_shared_0:
+  model: desk_shared
+  model_type: sdf
+  position: [ 3.13, 4.9, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+ignore_desk_shared_1:
+  model: desk_shared
+  model_type: sdf
+  position: [ 3.13, 6.33, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+ignore_office_chair_0:
+  model: office_chair
+  model_type: sdf
+  position: [ 4.1, 5.3, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.4 ]
+ignore_rack_coat_0:
+  model: rack_coat
+  model_type: sdf
+  position: [ 1.06, 7.8, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+ignore_rack_coat_1:
+  model: rack_coat
+  model_type: sdf
+  position: [ 1.06, 8.6, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]

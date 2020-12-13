@@ -1,0 +1,93 @@
+apartment_4_table_2person_1:
+  model: table_2person_1
+  model_type: sdf
+  position: [ 0.21, 3.31, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+apartment_4_refrigerator_white_1:
+  model: refrigerator_white_1
+  model_type: sdf
+  position: [ 2.4, 2.0, -0.13 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+apartment_4_chair_fancy_1:
+  model: chair_fancy_1
+  model_type: sdf
+  position: [ 0.22, 4.36, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+apartment_4_chair_fancy_1_0:
+  model: chair_fancy_1
+  model_type: sdf
+  position: [ -0.59, 3.42, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.27 ]
+apartment_4_chair_fancy_1_1:
+  model: chair_fancy_1
+  model_type: sdf
+  position: [ 0.18, 2.19, 0.0 ]
+  orientation: [ 0.0, 0.0, 2.47 ]
+apartment_4_drawer_kitchen_1:
+  model: drawer_kitchen_1
+  model_type: sdf
+  position: [ 2.45, 2.97, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+apartment_4_drawer_kitchen_1_0:
+  model: drawer_kitchen_1
+  model_type: sdf
+  position: [ 2.45, 5.17 , 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+apartment_4_microwave:
+  model: microwave
+  model_type: sdf
+  position: [ 2.31, 3.0, 0.92 ]
+  orientation: [ 0.0, 0.0, 1.61 ]
+apartment_4_burner_stove:
+  model: burner_stove
+  model_type: sdf
+  position: [ 2.41, 4.0, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+apartment_4_sink:
+  model: sink
+  model_type: sdf
+  position: [ 1.38, 5.51, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+apartment_4_trashcan:
+  model: trashcan
+  model_type: sdf
+  position: [ 0.63, 5.66, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+
+apartment_4_chair_foldable:
+  model: chair_foldable
+  model_type: sdf
+  position: [ 5.13, -0.53, 0.0 ]
+  orientation: [ 0.0, 0.0, -2.6 ]
+apartment_4_sofa_large_1:
+  model: sofa_large_1
+  model_type: sdf
+  position: [ 6.0, 1.4, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+apartment_4_table_round_1:
+  model: table_round_1
+  model_type: sdf
+  position: [ 4.92, 3.83, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+apartment_4_tv_samsung:
+  model: tv_samsung
+  model_type: sdf
+  position: [ 3.57, 1.82, 0.59 ]
+  orientation: [ 0.0, 0.0, 1.7 ]
+apartment_4_table_tv:
+  model: table_tv
+  model_type: sdf
+  position: [ 3.5, 1.97, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+
+apartment_4_rack_coat:
+  model: rack_coat
+  model_type: sdf
+  position: [ -0.78, 1.07, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+apartment_4_drawer:
+  model: drawer
+  model_type: sdf
+  position: [ 0.77, -0.93, 0.0 ]
+  orientation: [ 0.0, 0.0, 3.14 ]
+

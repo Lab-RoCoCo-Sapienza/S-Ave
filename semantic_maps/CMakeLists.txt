@@ -48,6 +48,10 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   image_transport
   cv_bridge
+  pcl_ros
+  pcl_conversions
+  message_generation 
+  gazebo_ros
 )
 
 ## System dependencies are found with CMake's conventions
@@ -57,10 +61,23 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
-#ds OpenCV - OpenCV_DIR might be overwritten by user
+# Find OpenCV - OpenCV_DIR might be overwritten by user
 find_package(OpenCV REQUIRED)
 message("using OpenCV version ${OpenCV_VERSION} (${OpenCV_DIR})")
 include_directories(${OpenCV_INCLUDE_DIRS})
+
+# Find Gazebo
+find_package(gazebo REQUIRED)
+link_directories(${GAZEBO_LIBRARY_DIRS})
+include_directories(
+  ${Boost_INCLUDE_DIR} 
+  ${catkin_INCLUDE_DIRS} 
+  ${GAZEBO_INCLUDE_DIRS}
+)
+
+find_package(octomap REQUIRED)
+include_directories(${OCTOMAP_INCLUDE_DIRS})
+link_directories(${OCTOMAP_LIBRARY_DIRS})
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -93,11 +110,13 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+   FILES
+   Model.msg
+   LogicalImage.msg
+   Object.msg
+   SemanticMap.msg
+ )
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -114,10 +133,12 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+ generate_messages(
+   DEPENDENCIES
+   std_msgs
+   geometry_msgs
+   sensor_msgs
+ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -150,8 +171,32 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS src
-  #LIBRARIES semantic_maps_library
-  CATKIN_DEPENDS roscpp rospy std_msgs move_base move_base_msgs nav_msgs geometry_msgs tf actionlib_msgs actionlib visualization_msgs srrg_core sensor_msgs image_transport cv_bridge #lucrezio_simulation_environments lucrezio_semantic_mapper 
+  LIBRARIES 
+    semantic_mapper_library
+    object_detector_library
+    utils_library
+  CATKIN_DEPENDS 
+    roscpp 
+    rospy 
+    std_msgs 
+    move_base 
+    move_base_msgs 
+    nav_msgs 
+    geometry_msgs 
+    tf 
+    actionlib_msgs 
+    actionlib 
+    visualization_msgs 
+    srrg_core 
+    sensor_msgs 
+    image_transport 
+    cv_bridge 
+    pcl_ros 
+    pcl_conversions 
+    message_runtime 
+    gazebo_ros 
+    #lucrezio_simulation_environments 
+    #lucrezio_semantic_mapper 
 #  DEPENDS system_lib
 )
 
@@ -199,6 +244,7 @@ include_directories(
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/src)
 
+
 #############
 ## Install ##
 #############
@@ -240,6 +286,19 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/src)
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
+
+
+install(DIRECTORY 
+  #images 
+  meshes 
+  #launch 
+  #rviz 
+  urdf
+  scripts
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+  
+execute_process(COMMAND cp -a ${CMAKE_SOURCE_DIR}/semantic_maps/models/. $ENV{HOME}/.gazebo/models)
+
 
 #############
 ## Testing ##
