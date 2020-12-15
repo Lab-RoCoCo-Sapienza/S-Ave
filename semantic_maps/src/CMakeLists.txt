@@ -1,0 +1,5 @@
+add_subdirectory(object_detector)
+add_subdirectory(semantic_mapper)
+add_subdirectory(nodes)
+add_subdirectory(utils)
+add_subdirectory(logical_camera_plugin)
