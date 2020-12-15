@@ -1,0 +1,211 @@
+phd_office_desk_shared:
+  model: desk_shared
+  model_type: sdf
+  position: [ 5.21, -4.57, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_0:
+  model: desk_shared
+  model_type: sdf
+  position: [ 5.21, -3.16, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_1:
+  model: desk_shared
+  model_type: sdf
+  position: [ 5.21, -1.74, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_2:
+  model: desk_shared
+  model_type: sdf
+  position: [ 2.96, -4.55, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_3:
+  model: desk_shared
+  model_type: sdf
+  position: [ 2.96, -3.13, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_4:
+  model: desk_shared
+  model_type: sdf
+  position: [ 0.97, -4.56, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_5:
+  model: desk_shared
+  model_type: sdf
+  position: [ 0.97, -3.14, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_6:
+  model: desk_shared
+  model_type: sdf
+  position: [ 0.97, -1.74, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_7:
+  model: desk_shared
+  model_type: sdf
+  position: [ 2.96, -1.74, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_8:
+  model: desk_shared
+  model_type: sdf
+  position: [ 0.10, -3.16, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_9:
+  model: desk_shared
+  model_type: sdf
+  position: [ 0.10, -4.57, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_desk_shared_10:
+  model: desk_shared
+  model_type: sdf
+  position: [ -1.28, -0.32, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_boxes:
+  model: boxes
+  model_type: sdf
+  position: [ 5.19, 0.31, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_office_chair:
+  model: office_chair
+  model_type: sdf
+  position: [ 4.53, -4.52, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.54 ]
+phd_office_office_chair_0:
+  model: office_chair
+  model_type: sdf
+  position: [ 4.54, -3.23, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.54 ]
+phd_office_office_chair_1:
+  model: office_chair
+  model_type: sdf
+  position: [ 4.56, -1.72, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.63 ]
+phd_office_office_chair_2:
+  model: office_chair
+  model_type: sdf
+  position: [ 3.66, -1.75, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.24 ]
+phd_office_office_chair_3:
+  model: office_chair
+  model_type: sdf
+  position: [ 3.67, -3.32, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.51 ]
+phd_office_office_chair_4:
+  model: office_chair
+  model_type: sdf
+  position: [ 3.66, -4.52, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.54 ]
+phd_office_office_chair_5:
+  model: office_chair
+  model_type: sdf
+  position: [ 1.69, -4.62, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.36 ]
+phd_office_office_chair_6:
+  model: office_chair
+  model_type: sdf
+  position: [ 1.67, -3.23, 0.0 ]
+  orientation: [ 0.0, 0.0, -0.02 ]
+phd_office_office_chair_7:
+  model: office_chair
+  model_type: sdf
+  position: [ 1.77, -1.83, 0.0 ]
+  orientation: [ 0.0, 0.0, 2.08 ]
+phd_office_office_chair_8:
+  model: office_chair
+  model_type: sdf
+  position: [ -0.57, -3.18, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.21 ]
+phd_office_office_chair_9:
+  model: office_chair
+  model_type: sdf
+  position: [ -0.62, -4.47, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.46 ]
+phd_office_office_chair_10:
+  model: office_chair
+  model_type: sdf
+  position: [ -2.02, -0.22, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.95 ]
+phd_office_drawer:
+  model: drawer
+  model_type: sdf
+  position: [ 2.07, 0.45, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_shelf:
+  model: shelf
+  model_type: sdf
+  position: [ -0.02, -1.78, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.59 ]
+phd_office_microwave:
+  model: microwave
+  model_type: sdf
+  position: [ 1.88, 0.42, 0.67 ]
+  orientation: [ 0.0, 0.0, 3.14 ]
+phd_office_rack_coat:
+  model: rack_coat
+  model_type: sdf
+  position: [ 5.20, -0.49, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_monitor_pc:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 5.29, -2.02, 0.76 ]
+  orientation: [ 0.0, 0.0, 2.85 ]
+phd_office_monitor_pc_0:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 5.31, -3.41, 0.76 ]
+  orientation: [ 0.0, 0.0, -0.59 ]
+phd_office_monitor_pc_1:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 5.37, -4.59, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.21 ]
+phd_office_monitor_pc_2:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 2.83, -4.29, 0.76 ]
+  orientation: [ 0.0, 0.0, -0.33 ]
+phd_office_monitor_pc_3:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 2.82, -3.32, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_monitor_pc_4:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 2.90, -2.04, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.33 ]
+phd_office_monitor_pc_5:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 0.81, -4.65, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.24 ]
+phd_office_monitor_pc_6:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 0.82, -3.37, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+phd_office_monitor_pc_7:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 0.84, -2.02, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.13 ]
+phd_office_monitor_pc_8:
+  model: monitor_pc
+  model_type: sdf
+  position: [ -1.12, -0.11, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.37 ]
+phd_office_monitor_pc_9:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 0.21, -3.44, 0.76 ]
+  orientation: [ 0.0, 0.0, -0.34 ]
+phd_office_monitor_pc_10:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 0.17, -4.31, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.14 ]
+phd_office_books:
+  model: books
+  model_type: sdf
+  position: [ 2.52, 0.45, 0.67 ]
+  orientation: [ 0.0, 0.0, 0.1 ]
+

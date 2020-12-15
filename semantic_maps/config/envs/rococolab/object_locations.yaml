@@ -1,0 +1,177 @@
+rococolab_desk_shared:
+  model: desk_shared
+  model_type: sdf
+  position: [ 4.49, -4.15, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_0:
+  model: desk_shared
+  model_type: sdf
+  position: [ 3.07, -4.15, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_1:
+  model: desk_shared
+  model_type: sdf
+  position: [ 4.58, -1.21, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_2:
+  model: desk_shared
+  model_type: sdf
+  position: [ 0.07, -4.15, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_3:
+  model: desk_shared
+  model_type: sdf
+  position: [ 1.54, -4.13, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_4:
+  model: desk_shared
+  model_type: sdf
+  position: [ 3.17, -1.21, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_5:
+  model: desk_shared
+  model_type: sdf
+  position: [ 1.76, -1.21, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+rococolab_desk_shared_6:
+  model: desk_shared
+  model_type: sdf
+  position: [ -0.15, 3.67, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+rococolab_desk_shared_7:
+  model: desk_shared
+  model_type: sdf
+  position: [ -0.14, 2.24, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+
+rococolab_monitor_pc:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 1.86, -4.16, 0.76 ]
+  orientation: [ 0.0, 0.0, -1.19 ]
+rococolab_monitor_pc_0:
+  model: monitor_pc
+  model_type: sdf
+  position: [ -0.04, -4.04, 0.76 ]
+  orientation: [ 0.0, 0.0, -2.08 ]
+rococolab_monitor_pc_1:
+  model: monitor_pc
+  model_type: sdf
+  position: [ 4.48, -1.03, 0.76 ]
+  orientation: [ 0.0, 0.0, 1.08 ]
+
+rococolab_books:
+  model: books
+  model_type: sdf
+  position: [ 3.5, -4.06, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.5 ]
+rococolab_books_0:
+  model: books
+  model_type: sdf
+  position: [ 1.62, -1.20, 0.76 ]
+  orientation: [ 0.0, 0.0, 1.0 ]
+rococolab_books_1:
+  model: books
+  model_type: sdf
+  position: [ -0.25, 2.45, 0.76 ]
+  orientation: [ 0.0, 0.0, 0.8 ]
+
+rococolab_drawer:
+  model: drawer
+  model_type: sdf
+  position: [ -0.44, -2.16, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.6 ]
+rococolab_drawer_0:
+  model: drawer
+  model_type: sdf
+  position: [ 2.44, 4.13, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+
+rococolab_office_chair:
+  model: office_chair
+  model_type: sdf
+  position: [ 4.42, -3.48, 0.0 ]
+  orientation: [ 0.0, 0.0, 3.02 ]
+rococolab_office_chair_0:
+  model: office_chair
+  model_type: sdf
+  position: [ 2.45, -3.21, 0.0 ]
+  orientation: [ 0.0, 0.0, 2.5 ]
+rococolab_office_chair_1:
+  model: office_chair
+  model_type: sdf
+  position: [ 1.25, -3.3, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.8 ]
+rococolab_office_chair_2:
+  model: office_chair
+  model_type: sdf
+  position: [ 0.34, -3.31, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.8 ]
+rococolab_office_chair_3:
+  model: office_chair
+  model_type: sdf
+  position: [ 4.42, -2.36, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.44 ]
+rococolab_office_chair_4:
+  model: office_chair
+  model_type: sdf
+  position: [ 2.8, -0.45, 0.0 ]
+  orientation: [ 0.0, 0.0, -2.62 ]
+rococolab_office_chair_5:
+  model: office_chair
+  model_type: sdf
+  position: [ 0.56, 3.66, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.1 ]
+rococolab_chair_foldable:
+  model: chair_foldable
+  model_type: sdf
+  position: [ 2.23, -2.17, 0.0 ]
+  orientation: [ 0.0, 0.0, 2.8 ]
+rococolab_chair_foldable_0:
+  model: chair_foldable
+  model_type: sdf
+  position: [ 1.67, -0.57, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+rococolab_chair_foldable_1:
+  model: chair_foldable
+  model_type: sdf
+  position: [ 4.49, 0.49, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.0 ]
+rococolab_chair_foldable_2:
+  model: chair_foldable
+  model_type: sdf
+  position: [ 4.22, 1.47, 0.0 ]
+  orientation: [ 0.0, 0.0, 0.1 ]
+rococolab_chair_foldable_3:
+  model: chair_foldable
+  model_type: sdf
+  position: [ 0.71, 1.61, 0.0 ]
+  orientation: [ 0.0, 0.0, 2.13 ]
+rococolab_chair_foldable_4:
+  model: chair_foldable
+  model_type: sdf
+  position: [ 0.77, 2.65, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+
+rococolab_shelf:
+  model: shelf
+  model_type: sdf
+  position: [ 5.18, 3.62, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.57 ]
+rococolab_shelf_0:
+  model: shelf
+  model_type: sdf
+  position: [ 5.14, 2.07, 0.0 ]
+  orientation: [ 0.0, 0.0, -1.54 ]
+
+rococolab_pc:
+  model: pc
+  model_type: sdf
+  position: [ 0.21, 3.31, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]
+
+rococolab_grass_robocup:
+  model: grass_robocup
+  model_type: sdf
+  position: [ 2.75, 1.87, 0.0 ]
+  orientation: [ 0.0, 0.0, 1.57 ]

@@ -1,0 +1,41 @@
+kitchen:
+- table_2person_1
+- refrigerator_white_1
+- chair_fancy_1
+- chair_fancy_1_0
+- chair_fancy_1_1
+- drawer_kitchen_1
+- drawer_kitchen_1_0
+- microwave
+- burner_stove
+- sink
+- trashcan
+living_room:
+- chair_foldable
+- sofa_large_1
+- table_round_1
+- tv_samsung
+- table_tv
+corridor:
+- rack_coat
+- drawer
+room1:
+- bed
+- office_chair
+- desk_shared_0
+room2:
+- monitor_pc
+- desk_shared
+- books
+- chair_foldable_0
+- boxes
+- bed_0
+room3:
+- books_0
+- desk_shared_1
+- chair_modern_1
+- bed_fullsize
+bathroom:
+- shower_small_1
+- sink_big_1
+- toilet_white_1

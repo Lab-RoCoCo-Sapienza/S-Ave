@@ -1,0 +1,15 @@
+livingroom:
+- table_round_1
+- chair_fancy_1
+- sofa_large_1
+bedroom:
+- bed_king_1
+kitchen:
+- stove_4burners_1
+- refrigerator_white_1
+- chair_modern_1
+- table_2person_1
+bathroom:
+- shower_big_1
+- sink_big_1
+- toilet_white_1

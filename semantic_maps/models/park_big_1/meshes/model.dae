@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.79.0 commit date:2018-03-22, commit time:14:10, hash:f4dc9f9d68b</authoring_tool>
+    </contributor>
+    <created>2019-01-13T02:22:10</created>
+    <modified>2019-01-13T02:22:10</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects/>
+  <library_geometries>
+    <geometry id="Cube_001-mesh" name="Cube.001">
+      <mesh>
+        <source id="Cube_001-mesh-positions">
+          <float_array id="Cube_001-mesh-positions-array" count="192">73.37065 -10.31684 0 73.37065 -10.31684 2 73.37065 -8.316839 0 73.37065 -8.316839 2 75.37065 -10.31684 0 75.37065 -10.31684 2 75.37065 -8.316839 0 75.37065 -8.316839 2 73.37065 7.86851 0 73.37065 7.86851 2 73.37065 9.868513 0 73.37065 9.868513 2 75.37065 7.86851 0 75.37065 7.86851 2 75.37065 9.868513 0 75.37065 9.868513 2 -7.669193 -10.31684 0 -7.669193 -10.31684 2 -7.669193 -8.316839 0 -7.669193 -8.316839 2 -5.669193 -10.31684 0 -5.669193 -10.31684 2 -5.669193 -8.316839 0 -5.669193 -8.316839 2 -7.669193 7.86851 0 -7.669193 7.86851 2 -7.669193 9.868513 0 -7.669193 9.868513 2 -5.669193 7.86851 0 -5.669193 7.86851 2 -5.669193 9.868513 0 -5.669193 9.868513 2 -8.716359 53.84344 0 -8.716359 53.84344 4 -8.716359 56.22439 0 -8.716359 56.22439 4 75.86699 53.84344 0 75.86699 53.84344 4 75.86699 56.22439 0 75.86699 56.22439 4 76.7287 -59.73157 0 76.7287 -59.73157 4 74.64537 -59.73157 0 74.64537 -59.73157 4 76.72869 55.88748 0 76.72869 55.88748 4 74.64536 55.88748 0 74.64536 55.88748 4 -7.506855 -59.73157 0 -7.506855 -59.73157 4 -9.590191 -59.73157 0 -9.590191 -59.73157 4 -7.506863 55.88748 0 -7.506863 55.88748 4 -9.590199 55.88748 0 -9.590199 55.88748 4 -8.716359 -59.7017 0 -8.716359 -59.7017 4 -8.716359 -57.32075 0 -8.716359 -57.32075 4 75.86699 -59.7017 0 75.86699 -59.7017 4 75.86699 -57.32075 0 75.86699 -57.32075 4</float_array>
+          <technique_common>
+            <accessor source="#Cube_001-mesh-positions-array" count="64" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube_001-mesh-normals">
+          <float_array id="Cube_001-mesh-normals-array" count="30">-1 0 0 0 1 0 1 0 0 0 -1 0 0 0 -1 0 0 1 -1 -1.31975e-7 0 1 1.31975e-7 0 -1 0 0 1 0 0</float_array>
+          <technique_common>
+            <accessor source="#Cube_001-mesh-normals-array" count="10" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cube_001-mesh-vertices">
+          <input semantic="POSITION" source="#Cube_001-mesh-positions"/>
+        </vertices>
+        <triangles count="96">
+          <input semantic="VERTEX" source="#Cube_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cube_001-mesh-normals" offset="1"/>
+          <p>1 0 2 0 0 0 3 1 6 1 2 1 7 2 4 2 6 2 5 3 0 3 4 3 6 4 0 4 2 4 3 5 5 5 7 5 1 0 3 0 2 0 3 1 7 1 6 1 7 2 5 2 4 2 5 3 1 3 0 3 6 4 4 4 0 4 3 5 1 5 5 5 9 0 10 0 8 0 11 1 14 1 10 1 15 2 12 2 14 2 13 3 8 3 12 3 14 4 8 4 10 4 11 5 13 5 15 5 9 0 11 0 10 0 11 1 15 1 14 1 15 2 13 2 12 2 13 3 9 3 8 3 14 4 12 4 8 4 11 5 9 5 13 5 17 0 18 0 16 0 19 1 22 1 18 1 23 2 20 2 22 2 21 3 16 3 20 3 22 4 16 4 18 4 19 5 21 5 23 5 17 0 19 0 18 0 19 1 23 1 22 1 23 2 21 2 20 2 21 3 17 3 16 3 22 4 20 4 16 4 19 5 17 5 21 5 25 0 26 0 24 0 27 1 30 1 26 1 31 2 28 2 30 2 29 3 24 3 28 3 30 4 24 4 26 4 27 5 29 5 31 5 25 0 27 0 26 0 27 1 31 1 30 1 31 2 29 2 28 2 29 3 25 3 24 3 30 4 28 4 24 4 27 5 25 5 29 5 33 0 34 0 32 0 35 1 38 1 34 1 39 2 36 2 38 2 37 3 32 3 36 3 38 4 32 4 34 4 35 5 37 5 39 5 33 0 35 0 34 0 35 1 39 1 38 1 39 2 37 2 36 2 37 3 33 3 32 3 38 4 36 4 32 4 35 5 33 5 37 5 41 3 42 3 40 3 43 6 46 6 42 6 47 1 44 1 46 1 45 7 40 7 44 7 46 4 40 4 42 4 43 5 45 5 47 5 41 3 43 3 42 3 43 6 47 6 46 6 47 1 45 1 44 1 45 7 41 7 40 7 46 4 44 4 40 4 43 5 41 5 45 5 49 3 50 3 48 3 51 8 54 8 50 8 55 1 52 1 54 1 53 9 48 9 52 9 54 4 48 4 50 4 51 5 53 5 55 5 49 3 51 3 50 3 51 8 55 8 54 8 55 1 53 1 52 1 53 9 49 9 48 9 54 4 52 4 48 4 51 5 49 5 53 5 57 0 58 0 56 0 59 1 62 1 58 1 63 2 60 2 62 2 61 3 56 3 60 3 62 4 56 4 58 4 59 5 61 5 63 5 57 0 59 0 58 0 59 1 63 1 62 1 63 2 61 2 60 2 61 3 57 3 56 3 62 4 60 4 56 4 59 5 57 5 61 5</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Cube_011_001" name="Cube_011_001" type="NODE">
+        <matrix sid="transform">0.17 0 0 0 0 0.17 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#Cube_001-mesh" name="Cube_011_001"/>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
