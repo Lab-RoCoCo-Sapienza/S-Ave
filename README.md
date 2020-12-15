@@ -14,12 +14,14 @@ The folder **srrg** (containing 3 needed packages that are listed below) must al
 * *srrg_cmake_modules*: `git clone https://gitlab.com/srrg-software/srrg_cmake_modules.git`
 
 ## Running the code
-**simulated_platform_node**
+**simulated_platform_node** and **simulated_ideal_object_detector_node**
 
 Open 5 terminal windows and launch the commands here presented by following this order:
-  1. `roscore`
-  2. `roslaunch turtlebot3_gazebo turtlebot3_world.launch`
-  3. `roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping`
-  4. `roslaunch semantic_maps move_base.launch`
-  5. `rosrun semantic_maps simulated_platform_node`
+  1. `roslaunch semantic_maps gazebo_robot.launch`
+  2. `roslaunch semantic_maps gmapping.launch`
+  3. `roslaunch semantic_maps move_base.launch`
+  4. `rosrun semantic_maps simulated_platform_node`
+  5. `rosrun semantic_maps simulated_ideal_object_detector_node`
+  6. `roslaunch semantic_maps rviz_robot.launch`
+  
   
