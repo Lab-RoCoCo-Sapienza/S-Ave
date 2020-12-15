@@ -16,12 +16,12 @@ The folder **srrg** (containing 3 needed packages that are listed below) must al
 ## Running the code
 **simulated_platform_node** and **simulated_ideal_object_detector_node**
 
-Open 6 terminal windows and launch the commands here presented:
-  1st terminal: `roslaunch semantic_maps gazebo_robot.launch`
-  2nd terminal: `roslaunch semantic_maps gmapping.launch`
-  3rd terminal: `roslaunch semantic_maps move_base.launch`
-  4th terminal: `rosrun semantic_maps simulated_platform_node`
-  5th terminal: `rosrun semantic_maps simulated_ideal_object_detector_node`
-  6th terminal: `roslaunch semantic_maps rviz_robot.launch`
+Open 6 terminal windows and launch the commands here presented by following this order:
+  1. `roslaunch semantic_maps gazebo_robot.launch`
+  2. `roslaunch semantic_maps gmapping.launch`
+  3. `roslaunch semantic_maps move_base.launch`
+  4. `rosrun semantic_maps simulated_platform_node`
+  5. `rosrun semantic_maps simulated_ideal_object_detector_node`
+  6. `roslaunch semantic_maps rviz_robot.launch`
   
   
