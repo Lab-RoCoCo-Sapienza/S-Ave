@@ -11,7 +11,10 @@ In this section, we provide the commands needed to download the required package
 The folder **srrg** (containing 3 needed packages that are listed below) must also be positioned in the **catkin_ws/src** folder:
 * *srrg_core*: `git clone https://gitlab.com/srrg-software/srrg_core.git`
 * *srrg_core_ros*: `git clone https://gitlab.com/srrg-software/srrg_core_ros.git`
-* *srrg_cmake_modules*: `git clone https://gitlab.com/srrg-software/srrg_cmake_modules.git`
+* *srrg_cmake_modules*: `git clone https://gitlab.com/srrg-software/srrg_cmake_modules.git` </br>
+</br>
+
+Once all the packages have been downloaded, move to **catkin_ws** folder and run the command `catkin_make` to compile the code.
 
 ## Running the code
 **simulated_platform_node** and **simulated_ideal_object_detector_node**
