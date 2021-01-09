@@ -19,11 +19,11 @@
         <box size="${base_length} ${base_width} ${base_height}"/>
       </geometry>
     </visual>
-    <collision>
+    <!--<collision>
       <geometry>
         <box size="${base_length} ${base_width} ${base_height}"/>
       </geometry>
-    </collision>
+    </collision>-->
     <visual>
       <origin xyz="-${base_length/2 - base_height/2} 0 -${base_height/2}" rpy="0 0 0" />
       <geometry>
@@ -141,7 +141,7 @@
 
   <!-- LASER -->
   <link name="laser_link">
-    <collision>
+    <!--<collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <box size="0.1 0.1 0.1" />
@@ -152,7 +152,7 @@
       <geometry>
         <mesh filename="package://semantic_maps/meshes/hokuyo.dae" />
       </geometry>
-    </visual>
+    </visual>-->
     <inertial>
       <mass value="1e-5" />
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -163,29 +163,37 @@
   <!-- LASER JOINT -->
   <joint name="laser_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="0.1 0 0.1" rpy="0 0 0" />
+    <origin xyz="0.1 0 -0.05" rpy="0 0 0" />
     <parent link="base_link" />
     <child  link="laser_link" />
   </joint>
 
   <!-- HOKUYO SENSOR -->
   <gazebo reference="laser_link">
-    <sensor type="gpu_ray" name="head_hokuyo_sensor">
+    <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
       <update_rate>40</update_rate>
       <ray>
-        <scan>
+        <!--<scan>
           <horizontal>
             <samples>1024</samples>
             <resolution>1</resolution>
             <min_angle>-1.57</min_angle>
             <max_angle>1.57</max_angle>
           </horizontal>
+        </scan>-->
+        <scan>
+          <horizontal>
+            <samples>512</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.571</min_angle> 
+            <max_angle>1.571</max_angle>
+          </horizontal>
         </scan>
         <range>
-          <min>0.02</min>
-          <max>10.0</max>
+          <min>0.20</min>
+          <max>15.0</max>
           <resolution>0.01</resolution>
         </range>
         <noise>
@@ -194,26 +202,29 @@
           <stddev>0.0</stddev>
         </noise>
       </ray>
-      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
         <topicName>/scan</topicName>
         <frameName>laser_link</frameName>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
   <!-- CAMERA -->
   <link name="camera_link">
-    <collision>
+    <!--<collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-    <box size="${camera_link} ${camera_link} ${camera_link}"/>
+        <box size="${camera_link} ${camera_link} ${camera_link}"/>
       </geometry>
-    </collision>
+    </collision>-->
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-    <box size="${camera_link} ${camera_link} ${camera_link}"/>
+        <box size="${camera_link} ${camera_link} ${camera_link}"/>
+<!--        
+<mesh filename="package://semantic_maps/meshes/kinect.dae" />
+-->
       </geometry>
       <material name="red"/>
     </visual>
@@ -227,28 +238,30 @@
   
 
   <!-- CAMERA JOINT -->
-  <joint name="camera_joint" type="continuous">
-    <axis xyz="0 1 0" />
-    <origin xyz="0 0 1.0" rpy="0 0 0"/>
+  <joint name="camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="camera_link"/>
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0.5" rpy="0 0 0"/>
   </joint>
 <!--
   <gazebo reference="camera_joint">
     <preserveFixedJoint>true</preserveFixedJoint>
   </gazebo>"
+
+<origin xyz="0.21 0 0.1" rpy="0 0 0"/>
 -->  
 
   <!-- XTION SENSOR -->
   <gazebo reference="camera_link">
     <sensor type="depth" name="rgbd_camera">
       <always_on>true</always_on>
-      <update_rate>20.0</update_rate>
+      <update_rate>30.0</update_rate>
       <camera>
         <horizontal_fov>${60.0*M_PI/180.0}</horizontal_fov>
         <image>
-          <width>320</width>
-          <height>240</height>
+          <width>640</width>
+          <height>480</height>
           <format>R8G8B8</format>
         </image>
         <clip>
@@ -256,10 +269,11 @@
           <far>8.0</far>
         </clip>
       </camera>
+
       <plugin name="rgdb_camera_controller" filename="libgazebo_ros_openni_kinect.so">
-        <cameraName>camera</cameraName>
+	  <cameraName>camera</cameraName>   
           <alwaysOn>true</alwaysOn>
-          <updateRate>10</updateRate>
+          <updateRate>30</updateRate>
           <imageTopicName>rgb/image_raw</imageTopicName>
           <depthImageTopicName>depth/image_raw</depthImageTopicName>
           <pointCloudTopicName>depth/points</pointCloudTopicName>
@@ -272,7 +286,7 @@
           <distortion_k3>0.0</distortion_k3>
           <distortion_t1>0.0</distortion_t1>
           <distortion_t2>0.0</distortion_t2>
-          <pointCloudCutoff>0.4</pointCloudCutoff>
+	  <pointCloudCutoff>0.4</pointCloudCutoff>
       </plugin>
     </sensor>
   </gazebo>

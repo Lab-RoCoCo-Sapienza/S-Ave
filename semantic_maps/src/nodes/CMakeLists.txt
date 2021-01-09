@@ -24,5 +24,14 @@ add_dependencies(simulated_ideal_object_detector_node
   ${catkin_EXPORTED_TARGETS}
 )
 
+# simulated_spatial_knowledge_node
+add_executable(simulated_spatial_knowledge_node
+ simulated_spatial_knowledge_node.cpp
+)
+
+target_link_libraries(simulated_spatial_knowledge_node
+  ${catkin_LIBRARIES}
+)
+
 
 

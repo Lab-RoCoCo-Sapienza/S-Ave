@@ -345,7 +345,7 @@
   <!-- LOGICAL CAMERA SENSOR -->
   <gazebo reference="logical_camera_link">
       <sensor name="logical_camera" type="logical_camera">
-        <plugin name="logical_camera_plugin" filename="liblogical_camera_plugin.so"/>
+         <plugin name="logical_camera_plugin" filename="liblogical_camera_plugin.so"/>
 
           <logical_camera>
             <near>0.02</near>

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 
-// Messages --
+// Messages 
 #include <nav_msgs/OccupancyGrid.h>
 #include <geometry_msgs/Transform.h>
 #include <sensor_msgs/PointCloud2.h>

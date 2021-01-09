@@ -341,13 +341,18 @@
             <near>0.02</near>
             <far>8.0</far>
             <horizontal_fov>${60.0*M_PI/180.0}</horizontal_fov>
-            <aspect_ratio>1.778</aspect_ratio>
+           <!-- <aspect_ratio>1.778</aspect_ratio> -->
           </logical_camera>
 
           <visualize>false</visualize>
           <always_on>true</always_on>
           <update_rate>20</update_rate>
       </sensor>
+  </gazebo>
+
+
+  <gazebo>
+    
   </gazebo>
   
 

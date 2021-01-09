@@ -11,24 +11,28 @@
     <arg name="debug" value="false"/>
   </include>
 
-  <!-- push robot_description to factory and spawn robot in gazebo -->
-  <arg name="model" default="$(find semantic_maps)/urdf/lucrezio_with_logical.urdf.xacro"/>
+  <!-- push robot_description to factory and spawn robot in gazebo lucrezio.urdf.xacro-->
+  <arg name="model" default="$(find semantic_maps)/urdf/lucrezio.urdf.xacro"/>
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
         args="-z 1.0 -unpause -urdf -model robot -param robot_description" respawn="false" output="screen" />
 
+  <node pkg="tf" type="static_transform_publisher" name="camera_link_broadcaster" args="0 0 0 -0.5 0.5 -0.5 0.5 /camera_link /camera_depth_optical_frame 20" />
+  
+  <node pkg="tf" type="static_transform_publisher" name="base_footprint_broadcaster" args="0 0 0.1 0.0 0.0 0.0 1.0 /base_footprint /base_link 20" />
+
+
   <!-- start state publishers -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher">
-    <param name="publish_frequency" type="double" value="30.0" />
+  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher" />
+<!--
+ <param name="publish_frequency" type="double" value="30.0" />
   </node>
+-->
 
   <!-- Run the controller manager -->
-  <rosparam command="load" file="$(find semantic_maps)/config/diffdrive.yaml" ns="lucrezio" />
-  <node name="lucrezio_controller_spawner" pkg="controller_manager" type="spawner" args="lucrezio --shutdown-timeout 3"/>
+    <rosparam file="$(find lucrezio_simulation_environments)/config/diffdrive.yaml" command="load" ns="lucrezio" />
 
-  <node pkg="tf" type="static_transform_publisher" name="camera_link_broadcaster" args="0 0 0 -0.5 0.5 -0.5 0.5 /camera_link /camera_depth_optical_frame 100" />
-
-  <node pkg="tf" type="static_transform_publisher" name="base_footprint_broadcaster" args="0 0 0.1 0.0 0.0 0.0 1.0 /base_footprint /base_link 20" />
+  <node name="lucrezio_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="lucrezio" />  
 
 </launch>

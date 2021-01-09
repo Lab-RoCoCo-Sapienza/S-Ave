@@ -50,7 +50,7 @@
   </node>
 
   <!-- Joy Teleop 
-  <node name="lucrezio_joy_teleop" pkg="thin_joystick_teleop" type="joy_teleop_node" >
+  <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard" >
     <param name="command_vel_topic" value="/lucrezio/cmd_vel" />
   </node>
   -->
