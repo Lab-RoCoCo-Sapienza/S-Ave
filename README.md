@@ -17,6 +17,13 @@ The folder **srrg** (containing 3 needed packages that are listed below) must al
 In order to move the robot, the **teleop_twist_keyboard** package is required, so to install it, open a terminal and launch the command: </br> 
 `sudo apt-get install ros-melodic-teleop-twist-keyboard` </br>
 
+Both, the **octomap** package and **rviz-plugins** are also required, so to install them, open a terminal and launch the following commands one after the other:
+* `sudo apt-get install ros-melodic-octomap-ros` 
+* `sudo apt-get install ros-melodic-octomap-msgs` 
+* `sudo apt-get install ros-melodic-octomap-server` 
+* `sudo apt-get install ros-melodic-octomap-rviz-plugins` </br>
+
+
 Once all the packages have been downloaded, move to **catkin_ws** folder and run the command `catkin_make` to compile the code. </br>
 
 ## Running the code
