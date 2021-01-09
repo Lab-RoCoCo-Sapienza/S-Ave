@@ -14,17 +14,21 @@ The folder **srrg** (containing 3 needed packages that are listed below) must al
 * *srrg_cmake_modules*: `git clone https://gitlab.com/srrg-software/srrg_cmake_modules.git` </br>
 </br>
 
-Once all the packages have been downloaded, move to **catkin_ws** folder and run the command `catkin_make` to compile the code.
+In order to move the robot, the **teleop_twist_keyboard** package is required, so to install it, open a terminal and launch the command: </br> 
+`sudo apt-get install ros-melodic-teleop-twist-keyboard` </br>
+
+Once all the packages have been downloaded, move to **catkin_ws** folder and run the command `catkin_make` to compile the code. </br>
 
 ## Running the code
 **simulated_platform_node** and **simulated_ideal_object_detector_node**
 
-Open 6 terminal windows and launch the commands here presented by following this order:
+Open 7 terminal windows and launch the commands here presented by following this order:
   1. `roslaunch semantic_maps gazebo_robot.launch`
   2. `roslaunch semantic_maps gmapping.launch`
   3. `roslaunch semantic_maps move_base.launch`
   4. `rosrun semantic_maps simulated_platform_node`
   5. `rosrun semantic_maps simulated_ideal_object_detector_node`
   6. `roslaunch semantic_maps rviz_robot.launch`
+  7. `rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/lucrezio/cmd_vel`
   
   
