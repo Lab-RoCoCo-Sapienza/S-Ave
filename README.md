@@ -3,6 +3,7 @@
 ## Installation
 In this section, we provide the commands needed to download the required packages that must be located in the **catkin_ws/src** folder:
 * *S-Ave*: `git clone https://github.com/Lab-RoCoCo-Sapienza/S-Ave.git`
+* *octomap_mapping*: `git clone https://github.com/OctoMap/octomap_mapping.git`
 * *turtlebot3*: `git clone https://github.com/ROBOTIS-GIT/turtlebot3.git`
 * *turtlebot3_msgs*: `git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git`
 * *turtlebot3_simulations*: `git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git` </br>
