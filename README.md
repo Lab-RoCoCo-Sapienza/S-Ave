@@ -7,15 +7,12 @@ In this section, we provide the commands needed to download the required package
 * *turtlebot3*: `git clone https://github.com/ROBOTIS-GIT/turtlebot3.git`
 * *turtlebot3_msgs*: `git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git`
 * *turtlebot3_simulations*: `git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git` </br>
-</br>
 
 ### srrg
 The folder **srrg** (containing 3 needed packages that are listed below) must also be positioned in the **catkin_ws/src** folder:
 * *srrg_core*: `git clone https://gitlab.com/srrg-software/srrg_core.git`
 * *srrg_core_ros*: `git clone https://gitlab.com/srrg-software/srrg_core_ros.git`
 * *srrg_cmake_modules*: `git clone https://gitlab.com/srrg-software/srrg_cmake_modules.git` </br>
-</br>
-
 
 ### ncnn
 The **ncnn** package is needed for *yolov5_object_detection_node*, but in order not to encouter any type of error during compilation, it is required to follow these steps: </br>
@@ -34,7 +31,7 @@ To build the library, it is necessary to run these commands: </br>
 
 Once ncnn library is compiled, we need to move into **catkin/src** folder, create the **ncnn** package with the following command: </br>
 `catkin_create_pkg ncnn`
-and move the entire library (the folder downloaded with the command `git clone https://github.com/Tencent/ncnn.git`) into this package.
+and move the entire library (the folder downloaded with the command `git clone https://github.com/Tencent/ncnn.git`) into this package.</br>
 
 ### sudo apt-get
 In order to move the robot, the **teleop_twist_keyboard** package is required, so to install it, open a terminal and launch the command: </br> 
