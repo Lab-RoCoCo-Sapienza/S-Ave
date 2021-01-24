@@ -158,7 +158,7 @@ geometry_msgs::Transform eigen2poseMsg(const Eigen::Isometry3f camera_tf){
 // Main function
 int main(int argc, char **argv){
 
-  ros::init(argc,argv,"simulated_platform_node");
+  ros::init(argc,argv,"platform_node");
   ros::NodeHandle nh;
 
   Eigen::Isometry3f camera_transform = Eigen::Isometry3f::Identity();

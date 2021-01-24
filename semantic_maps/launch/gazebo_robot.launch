@@ -12,7 +12,7 @@
   </include>
 
   <!-- push robot_description to factory and spawn robot in gazebo lucrezio.urdf.xacro-->
-  <arg name="model" default="$(find semantic_maps)/urdf/lucrezio.urdf.xacro"/>
+  <arg name="model" default="$(find semantic_maps)/urdf/new_robot.urdf.xacro"/>
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
         args="-z 1.0 -unpause -urdf -model robot -param robot_description" respawn="false" output="screen" />

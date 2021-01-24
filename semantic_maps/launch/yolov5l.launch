@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="display_output" default="true"/>
+  <arg name="camera_topic" default="/camera/rgb/image_raw"/>
+
+  <node name="yolov5_node" pkg="semantic_maps" type="yolov5_node" output="screen">
+    <param name="model_file" value="yolov5l-opt.bin"/>
+    <param name="param_file" value="yolov5l-opt.param"/>
+    <param name="display_output" value="$(arg display_output)"/>
+    <remap from="/camera/rgb/image_raw" to="$(arg camera_topic)"/>
+    <param name="probability_threshold" value="0.4"/>
+  </node>
+
+</launch>

@@ -1,12 +1,20 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(semantic_maps)
 
-add_compile_options(-std=c++11)
+add_compile_options(-std=c++11 -DUSE_AVX_INSTRUCTIONS=ON)
+
+option(GPU_SUPPORT "Enable GPU support (Vulkan)" OFF)
 
 #set the default path for built executables to the "bin" directory
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+
+set (GOMP_LIB /usr/lib/x86_64-linux-gnu/libgomp.so.1)
+
+# NCNN config header exports GPU_SUPPORT definition towards source files
+configure_file("include/semantic_maps/ncnn_config.h.in" "semantic_maps/ncnn_config.h")
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # To uncomment in the future
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=gnu++11")
@@ -33,6 +41,7 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+  roslib
   std_msgs
   #lucrezio_simulation_environments
   #lucrezio_semantic_mapper
@@ -47,12 +56,15 @@ find_package(catkin REQUIRED COMPONENTS
   visualization_msgs
   sensor_msgs
   image_transport
+  image_geometry
   cv_bridge
   pcl_ros
   pcl_conversions
   message_generation 
   gazebo_ros
 )
+
+
 
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS system)
@@ -75,9 +87,38 @@ include_directories(
   ${GAZEBO_INCLUDE_DIRS}
 )
 
+
+# Find Octomap
 find_package(octomap REQUIRED)
 include_directories(${OCTOMAP_INCLUDE_DIRS})
 link_directories(${OCTOMAP_LIBRARY_DIRS})
+
+
+# Find ncnn
+find_package(ncnn REQUIRED)
+if (${ncnn_FOUND})
+  message("-- NCNN found.")
+  message("-- NCNN_VULKAN flag is ${NCNN_VULKAN}")
+  if (${NCNN_VULKAN})
+    message("-- AUTO-ENABLING GPU_SUPPORT")
+    set(GPU_SUPPORT ON)
+  endif()
+  include_directories(${ncnn_INCLUDE})
+endif()
+
+# Check GPU_SUPPORT
+if (GPU_SUPPORT)
+  message("-- GPU support is ENABLED")
+  find_package(Vulkan) # REQUIRES ncnn to be built with vulkan
+  if (${VULKAN_FOUND})
+    message("-- Vulkan found.")
+  else()
+    message("-- ERROR: AUTO-DISABLING GPU_SUPPORT, because Vulkan was not found")
+    set(GPU_SUPPORT OFF)
+  endif()
+else()
+  message("-- GPU support is DISABLED")
+endif()
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -112,10 +153,13 @@ link_directories(${OCTOMAP_LIBRARY_DIRS})
 ## Generate messages in the 'msg' folder
 add_message_files(
    FILES
-   Model.msg
-   LogicalImage.msg
+   Vector2D.msg
+   Rectangle.msg
    Object.msg
-   SemanticMap.msg
+  # Model.msg
+  # LogicalImage.msg
+  # Object.msg
+  # SemanticMap.msg
  )
 
 ## Generate services in the 'srv' folder
@@ -175,9 +219,11 @@ catkin_package(
     semantic_mapper_library
     object_detector_library
     utils_library
+    ncnn_library
   CATKIN_DEPENDS 
     roscpp 
     rospy 
+    roslib
     std_msgs 
     move_base 
     move_base_msgs 
@@ -190,6 +236,7 @@ catkin_package(
     srrg_core 
     sensor_msgs 
     image_transport 
+    image_geometry
     cv_bridge 
     pcl_ros 
     pcl_conversions 
@@ -207,7 +254,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  "include"
   ${catkin_INCLUDE_DIRS}
   ${PROJECT_SOURCE_DIR}/src
 )
@@ -312,3 +359,9 @@ execute_process(COMMAND cp -a ${CMAKE_SOURCE_DIR}/semantic_maps/models/. $ENV{HO
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+# YOLO v5
+add_executable(yolov5_object_detector_node src/nodes/yolov5_object_detector_node.cpp src/yolo5/ncnn_yolov5.cpp)
+add_dependencies( yolov5_object_detector_node semantic_maps_generate_messages_cpp)
+target_link_libraries(yolov5_object_detector_node ${catkin_LIBRARIES} ncnn ${OpenCV_LIBS} ${GOMP_LIB})
+

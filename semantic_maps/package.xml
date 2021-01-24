@@ -74,6 +74,8 @@
   <build_depend>gazebo_ros</build_depend>
   <build_depend>roslaunch</build_depend>
   <build_depend>libpcl-all-dev</build_depend>
+  <build_depend>image_geometry</build_depend>
+  <build_depend>roslib</build_depend>
   
   <exec_depend>rospy</exec_depend>
   <!--exec_depend>lucrezio_simulation_environments</exec_depend>
@@ -108,6 +110,8 @@
   <exec_depend>position_controllers</exec_depend>
   <exec_depend>rqt_robot_steering</exec_depend>
   <exec_depend>libpcl-all</exec_depend>
+  <exec_depend>image_geometry</exec_depend>
+  <exec_depend>roslib</exec_depend>
 
 
 

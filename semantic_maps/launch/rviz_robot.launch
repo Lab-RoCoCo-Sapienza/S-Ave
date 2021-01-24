@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-  <arg name="model" default="$(find semantic_maps)/urdf/lucrezio.urdf.xacro"/>
+  <arg name="model" default="$(find semantic_maps)/urdf/new_robot.urdf.xacro"/>
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find semantic_maps)/rviz/urdf.rviz" />
 
