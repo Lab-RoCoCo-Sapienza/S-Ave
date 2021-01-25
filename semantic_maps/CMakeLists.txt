@@ -12,9 +12,6 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 set (GOMP_LIB /usr/lib/x86_64-linux-gnu/libgomp.so.1)
 
-# NCNN config header exports GPU_SUPPORT definition towards source files
-configure_file("include/semantic_maps/ncnn_config.h.in" "semantic_maps/ncnn_config.h")
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # To uncomment in the future
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=gnu++11")
@@ -219,7 +216,7 @@ catkin_package(
     semantic_mapper_library
     object_detector_library
     utils_library
-    ncnn_library
+    ncnn
   CATKIN_DEPENDS 
     roscpp 
     rospy 
@@ -244,7 +241,7 @@ catkin_package(
     gazebo_ros 
     #lucrezio_simulation_environments 
     #lucrezio_semantic_mapper 
-#  DEPENDS system_lib
+  #DEPENDS system_lib
 )
 
 ###########
@@ -254,9 +251,10 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  "include"
   ${catkin_INCLUDE_DIRS}
   ${PROJECT_SOURCE_DIR}/src
+  "include"
+
 )
 
 ## Declare a C++ library
@@ -359,6 +357,10 @@ execute_process(COMMAND cp -a ${CMAKE_SOURCE_DIR}/semantic_maps/models/. $ENV{HO
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+# NCNN config header exports GPU_SUPPORT definition towards source files
+configure_file("include/semantic_maps/ncnn_config.h.in" "semantic_maps/ncnn_config.h")
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # YOLO v5
 add_executable(yolov5_object_detector_node src/nodes/yolov5_object_detector_node.cpp src/yolo5/ncnn_yolov5.cpp)

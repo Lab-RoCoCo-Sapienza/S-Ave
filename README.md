@@ -15,25 +15,29 @@ The folder **srrg** (containing 3 needed packages that are listed below) must al
 * *srrg_cmake_modules*: `git clone https://gitlab.com/srrg-software/srrg_cmake_modules.git` </br>
 
 ### ncnn
-The **ncnn** package is needed for *yolov5_object_detection_node*, but in order not to encouter any type of error during compilation, it is required to follow these steps: </br>
-`$ git clone https://github.com/Tencent/ncnn.git` </br>
-`$ cd ncnn` </br>
-`$ git submodule update --init` </br>
+The **ncnn** package is needed for *yolov5_object_detection_node*, but in order not to encouter any type of error during compilation, it is required to move into **catkin/src** folder and follow these steps:
+  1. `$ catkin_create_pkg ncnn` (it creates a ros-package with the name *ncnn*) </br>
+  2. `$ cd ncnn` </br>
+  3. `ncnn$ mkdir -p src` </br>
+  4. `ncnn$ cd src` </br>
+  5. `ncnn/src$ git clone https://github.com/Tencent/ncnn.git` </br>
+  6. `ncnn/src$ cd ncnn` </br>
+  7. `ncnn/src/ncnn$ git submodule update --init` </br>
 
-To build the library, it is necessary to run these commands: </br>
-`$ cd ncnn` </br>
-`$ mkdir -p build` </br>
-`$ cd build` </br>
-`build$ cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=OFF -DNCNN_SYSTEM_GLSLANG=ON -DNCNN_BUILD_EXAMPLES=ON ..` </br>
-`build$ make -j$(nproc)` </br>
+To build the library, it is necessary to remain in the 'inner' ncnn folder (it is a library) and run these commands: </br>
+  8. `ncnn/src/ncnn$ mkdir -p build` </br>
+  9. `ncnn/src/ncnn$ cd build` </br>
+  10. `ncnn/src/ncnn/build$ cmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=OFF -DNCNN_SYSTEM_GLSLANG=ON -DNCNN_BUILD_EXAMPLES=ON ..` </br>
+  11. `ncnn/src/ncnn/build$ make -j$(nproc)` </br>
+  12. `ncnn/src/ncnn/build$ make install` </br>
+
+Now we need to allow the program to see the libncnn.a library, so in order to do that, remain in the **build** folder and launch in the terminal: </br>
+  13. `ncnn/src/ncnn/build$ sudo cp -r install/include/ncnn /usr/local/include/ncnn` </br>
+  14. `ncnn/src/ncnn/build$ sudo cp -r install/lib/libncnn.a /usr/local/lib/libncnn.a` </br>
 
 **NOTE**: Have a look at *https://github.com/Tencent/ncnn/wiki/how-to-build#build-for-linux-x86* if you want to install and use Vulcan. </br> 
 
-Once ncnn library is compiled, we need to move into **catkin/src** folder, create the **ncnn** package with the following command: </br>
-`catkin_create_pkg ncnn`
-and move the entire library (the folder downloaded with the command `git clone https://github.com/Tencent/ncnn.git`) into this package.</br>
-
-### sudo apt-get
+### sudo apt-get install
 In order to move the robot, the **teleop_twist_keyboard** package is required, so to install it, open a terminal and launch the command: </br> 
 `sudo apt-get install ros-melodic-teleop-twist-keyboard` </br>
 
