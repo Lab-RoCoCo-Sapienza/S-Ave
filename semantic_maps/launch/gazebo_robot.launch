@@ -31,7 +31,7 @@
 -->
 
   <!-- Run the controller manager -->
-    <rosparam file="$(find lucrezio_simulation_environments)/config/diffdrive.yaml" command="load" ns="lucrezio" />
+    <rosparam file="$(find semantic_maps)/config/diffdrive.yaml" command="load" ns="lucrezio" />
 
   <node name="lucrezio_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="lucrezio" />  
 

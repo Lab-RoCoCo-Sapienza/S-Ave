@@ -1,7 +1,16 @@
 # S-Ave
 
 ## Installation
-In this section, we provide the commands needed to download the required packages that must be located in the **catkin_ws/src** folder:
+Firstly, it is necessary to create the workspace, so open a terminal and type with the following command: </br>
+`$ mkdir -p ~/catkin_ws/src` </br>
+
+Type the following command to edit the .bashrc text file: </br>
+`$ gedit ~/.bashrc` </br>
+
+Add this line to the end of the .bashrc file: </br>
+`$ source ~/catkin_ws/devel/setup.bash` </br>
+
+Now, we provide the commands needed to download the required packages that must be located in the **catkin_ws/src** folder created before:
 * *S-Ave*: `git clone https://github.com/Lab-RoCoCo-Sapienza/S-Ave.git`
 * *octomap_mapping*: `git clone https://github.com/OctoMap/octomap_mapping.git`
 * *turtlebot3*: `git clone https://github.com/ROBOTIS-GIT/turtlebot3.git`
@@ -9,7 +18,7 @@ In this section, we provide the commands needed to download the required package
 * *turtlebot3_simulations*: `git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git` </br>
 
 ### srrg
-The folder **srrg** (containing 3 needed packages that are listed below) must also be positioned in the **catkin_ws/src** folder:
+The folder **srrg** (containing 3 needed packages that are listed below) must also be positioned in **catkin_ws/src** folder:
 * *srrg_core*: `git clone https://gitlab.com/srrg-software/srrg_core.git`
 * *srrg_core_ros*: `git clone https://gitlab.com/srrg-software/srrg_core_ros.git`
 * *srrg_cmake_modules*: `git clone https://gitlab.com/srrg-software/srrg_cmake_modules.git` </br>
@@ -47,8 +56,11 @@ Both, the **octomap** package and **rviz-plugins** are also required, so to inst
 * `sudo apt-get install ros-melodic-octomap-server` 
 * `sudo apt-get install ros-melodic-octomap-rviz-plugins` </br>
 
+Another important package to install is **slam-gmapping**: </br>
+`sudo apt-get install ros-melodic-slam-gmapping` </br>
 
-Once all the packages have been downloaded, move to **catkin_ws** folder and run the command `catkin_make` to compile the code. </br>
+Once all the packages have been downloaded, move to **catkin_ws** workspace and run the command `catkin_make` to compile the code by launching the following command: </br>
+`$ cd ~/catkin_ws && catkin_make`
 
 ## Running the code
 **platform_node** and **yolov5_object_detector_node**
