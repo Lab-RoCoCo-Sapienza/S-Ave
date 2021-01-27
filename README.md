@@ -1,5 +1,9 @@
 # S-Ave
 
+## Environment
+* Ubuntu 18.04
+* ROS melodic
+
 ## Installation
 Firstly, it is necessary to create the workspace, so open a terminal and type with the following command: </br>
 `$ mkdir -p ~/catkin_ws/src` </br>
