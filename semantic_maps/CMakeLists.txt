@@ -153,6 +153,7 @@ add_message_files(
    Object.msg
    Model.msg
    LogicalImage.msg
+   ObjectArray.msg
  )
 
 ## Generate services in the 'srv' folder
@@ -209,9 +210,10 @@ add_message_files(
 catkin_package(
   INCLUDE_DIRS src
   LIBRARIES 
-    object_detector_library
-    semantic_mapper_library
+    #object_detector_library
+    #semantic_mapper_library
     utils_library
+    lucrezio_logical_camera
     ncnn
   CATKIN_DEPENDS 
     roscpp 
@@ -356,12 +358,12 @@ configure_file("include/semantic_maps/ncnn_config.h.in" "semantic_maps/ncnn_conf
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # YOLO v5
-#add_executable(yolov5_object_detector_node src/nodes/yolov5_object_detector_node.cpp src/yolo5/ncnn_yolov5.cpp)
-#add_dependencies( yolov5_object_detector_node semantic_maps_generate_messages_cpp)
-#target_link_libraries(yolov5_object_detector_node ${catkin_LIBRARIES} ncnn ${OpenCV_LIBS} ${GOMP_LIB})
+add_executable(yolov5_object_detector_node src/nodes/yolov5_object_detector_node.cpp src/yolo5/ncnn_yolov5.cpp)
+add_dependencies( yolov5_object_detector_node semantic_maps_generate_messages_cpp)
+target_link_libraries(yolov5_object_detector_node ${catkin_LIBRARIES} ncnn ${OpenCV_LIBS} ${GOMP_LIB})
 
 # Prova node
-add_executable(prova_node src/nodes/prova_node.cpp src/yolo5/ncnn_yolov5.cpp)
-add_dependencies(prova_node semantic_maps_generate_messages_cpp)
-target_link_libraries(prova_node ${catkin_LIBRARIES} ncnn ${OpenCV_LIBS} ${GOMP_LIB})
+#add_executable(prova_node src/nodes/prova_node.cpp src/yolo5/ncnn_yolov5.cpp)
+#add_dependencies(prova_node semantic_maps_generate_messages_cpp)
+#target_link_libraries(prova_node ${catkin_LIBRARIES} ncnn ${OpenCV_LIBS} ${GOMP_LIB})
 

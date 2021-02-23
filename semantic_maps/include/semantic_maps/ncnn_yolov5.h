@@ -39,7 +39,7 @@ public:
 
   ncnn::Net neuralnet;
 
-
+  float getThreshold();
   int detect(const cv::Mat& bgr, std::vector<Object>& objects, uint8_t n_threads);
   void draw(const cv::Mat& bgr, const std::vector<Object>& objects, double dT);
 

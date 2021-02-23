@@ -1,15 +1,18 @@
 <?xml version="1.0"?>
 <launch>
 
+  <arg name="world" default="$(find semantic_maps)/worlds/restaurant.world" />
+
   <!-- Launch the empty world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="worlds/empty.world"/> 
+    <arg name="world_name" value="worlds/empty_world"/> 
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
     <arg name="recording" value="false"/>
     <arg name="debug" value="false"/>
   </include>
+
 
   <!-- push robot_description to factory and spawn robot in gazebo lucrezio.urdf.xacro-->
   <arg name="model" default="$(find semantic_maps)/urdf/new_robot.urdf.xacro"/>
@@ -25,10 +28,8 @@
   <!-- start state publishers -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
   <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher" />
-<!--
- <param name="publish_frequency" type="double" value="30.0" />
-  </node>
--->
+ <!--<param name="publish_frequency" type="double" value="30.0" />-->
+
 
   <!-- Run the controller manager -->
     <rosparam file="$(find semantic_maps)/config/diffdrive.yaml" command="load" ns="lucrezio" />

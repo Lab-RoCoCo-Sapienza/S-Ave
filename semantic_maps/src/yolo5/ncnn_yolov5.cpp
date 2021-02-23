@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <vector>
 
-
+const float prob_threshold = 0.5f;
 
 static inline float intersection_area(const Object& a, const Object& b)
 {
@@ -353,12 +353,16 @@ void ncnnYoloV5::draw(const cv::Mat& bgr, const std::vector<Object>& objects, do
 }*/
 
 
+float ncnnYoloV5::getThreshold() {
+    return prob_threshold;
+}
+
 // ------------------------- file di EXAMPLES ------------------------
 int ncnnYoloV5::detect(const cv::Mat& bgr, std::vector<Object>& objects, uint8_t n_threads)
 {
 
     const int target_size = 640;
-    const float prob_threshold = 0.5f;
+    //const float prob_threshold = 0.5f;
     const float nms_threshold = 0.45f;
 
     int img_w = bgr.cols;

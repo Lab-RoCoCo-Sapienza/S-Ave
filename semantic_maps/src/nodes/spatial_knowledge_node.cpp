@@ -15,8 +15,6 @@ void DetectedObjectsCallback(const semantic_maps::Object::ConstPtr &msg) {
 }
 
 
-
-
 // ------------------------------------------------------
 
 // Main function
@@ -32,11 +30,6 @@ int main(int argc, char **argv){
 
   /* SUBSCRIPTION to '/camera/depth/points' topic */
   ros::Subscriber point_cloud_sub = nh.subscribe("/camera/depth/points", 10, PointCloudCallback);
-
-  
-  /* SERVICE get_octomap_of_object */
-
-
 
   
 
