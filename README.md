@@ -67,8 +67,15 @@ Once all the packages have been downloaded, move to **catkin_ws** workspace and 
 `$ cd ~/catkin_ws && catkin_make`
 
 ## Running the code
-**platform_node**, **yolov5_object_detector_node** and **evaluation_node**
+**yolov5_object_detector_node** and **evaluation_node**
+Open 4 terminal windows and launch the commands here presented by following this order:
+  1. `roslaunch semantic_maps gazebo_robot.launch`
+  2. `rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/lucrezio/cmd_vel`
+  3. `roslaunch semantic_maps yolov5l.launch`
+  4. `roslaunch semantic_maps evaluation.launch` </br>
 
+
+**All**
 Open 7 terminal windows and launch the commands here presented by following this order:
   1. `roslaunch semantic_maps gazebo_robot.launch`
   2. `roslaunch semantic_maps gmapping.launch`
