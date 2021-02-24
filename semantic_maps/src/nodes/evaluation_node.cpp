@@ -12,18 +12,6 @@
 const int total_n_objects = 2; // total number of objects in the chosen scene
 
 
-void ListObjCallback(const semantic_maps::ObjectArray::ConstPtr &msg) {
-	ROS_INFO("Subscribed to 'detected_objects' topic");
-
-  int idx_last_obj = msg->objects.size()-1;
-  int n_detected = msg->objects[idx_last_obj].count; // number of detected objects
-  ROS_INFO("Total number of detected objects: %d", n_detected);
-  float oni = computeONI(n_detected);
-  float ori = computeORI(&msg);
-  
-}
-
-
 
 float computeONI(int n_detected) {
   float oni = n_detected / total_n_objects;
@@ -44,12 +32,26 @@ int32 count
 To obtain the value of one of the fields, we need to do: 
 obj.(name_of_the_field), as for example obj.label or obj.hgazebo
 */
-void computeORI(const semantic_maps::ObjectArray::ConstPtr &msg) {
+float computeORI(const semantic_maps::ObjectArray::ConstPtr &msg) {
   for (int i=0; i<msg->objects.size(); ++i) {
       const semantic_maps::Object &obj = msg->objects[i]; // access the Object at index i
       
   }
+  return 0.0;
 }
+
+
+void ListObjCallback(const semantic_maps::ObjectArray::ConstPtr &msg) {
+	ROS_INFO("Subscribed to 'detected_objects' topic");
+
+  int idx_last_obj = msg->objects.size()-1;
+  int n_detected = msg->objects[idx_last_obj].count; // number of detected objects
+  ROS_INFO("Total number of detected objects: %d", n_detected);
+  float oni = computeONI(n_detected);
+  float ori = computeORI(msg);
+  
+}
+
 
 
 

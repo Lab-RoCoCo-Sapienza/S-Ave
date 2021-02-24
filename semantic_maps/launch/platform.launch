@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="platform_node" pkg="semantic_maps" type="platform_node" output="screen"/>
+</launch>

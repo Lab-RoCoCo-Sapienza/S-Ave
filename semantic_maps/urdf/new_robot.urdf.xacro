@@ -154,7 +154,7 @@
       <geometry>
         <mesh filename="package://semantic_maps/meshes/hokuyo.dae" />
       </geometry>
-    </visual>
+    </visual>-->
     <inertial>
       <mass value="1e-5" />
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -216,7 +216,7 @@
     <!--<collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="${camera_link} ${camera_link} ${camera_link}"/>
+        <mesh filename="package://semantic_maps/meshes/kinect.dae" />
       </geometry>
     </collision>-->
 
@@ -296,7 +296,7 @@
   
   <!-- LOGICAL CAMERA -->
   <link name="logical_camera_link">
-    <!--<collision>
+    <!--collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
     	<mesh filename="package://semantic_maps/meshes/kinect.dae" />
@@ -332,10 +332,12 @@
          <plugin name="logical_camera_plugin" filename="liblogical_camera_plugin.so"/>
 
           <logical_camera>
-            <near>0.02</near>
-            <far>8.0</far>
-            <horizontal_fov>${60.0*M_PI/180.0}</horizontal_fov>
-            <aspect_ratio>1.778</aspect_ratio>
+            <near>2.0</near>
+            <far>2.0</far>
+            <horizontal_fov>0.4</horizontal_fov>
+            <aspect_ratio>1.1</aspect_ratio>
+            <!--<horizontal_fov>${60.0*M_PI/180.0}</horizontal_fov>
+            <aspect_ratio>1.778</aspect_ratio>-->
           </logical_camera>
 
           <visualize>false</visualize>
