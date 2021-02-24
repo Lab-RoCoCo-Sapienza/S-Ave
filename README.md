@@ -2,7 +2,7 @@
 
 ## Environment
 * Ubuntu 18.04
-* ROS melodic
+* ROS Melodic
 
 ## Installation
 Firstly, it is necessary to create the workspace, so open a terminal and type with the following command: </br>
@@ -67,15 +67,15 @@ Once all the packages have been downloaded, move to **catkin_ws** workspace and 
 `$ cd ~/catkin_ws && catkin_make`
 
 ## Running the code
-**platform_node** and **yolov5_object_detector_node**
+**platform_node**, **yolov5_object_detector_node** and **evaluation_node**
 
 Open 7 terminal windows and launch the commands here presented by following this order:
   1. `roslaunch semantic_maps gazebo_robot.launch`
   2. `roslaunch semantic_maps gmapping.launch`
   3. `roslaunch semantic_maps move_base.launch`
   4. `roslaunch semantic_maps rviz_robot.launch` -> (*if some options on the left of the visualizer appear in red, close Rviz and run again the command*)
-  5. `rosrun semantic_maps platform_node`
-  6. `roslaunch semantic_maps yolov5l.launch`
-  7. `rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/lucrezio/cmd_vel`
-  
+  5. `roslaunch semantic_maps platform.launch`
+  6. `rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/lucrezio/cmd_vel`
+  7. `roslaunch semantic_maps yolov5l.launch`
+  8. `roslaunch semantic_maps evaluation.launch`
   
