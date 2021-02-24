@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="evaluation_node" pkg="semantic_maps" type="evaluation_node" output="screen"/>
+</launch>
