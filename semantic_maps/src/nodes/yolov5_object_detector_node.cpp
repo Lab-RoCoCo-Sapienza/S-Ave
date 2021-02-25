@@ -15,7 +15,7 @@
 #include <semantic_maps/Model.h>
 #include <algorithm>
 #include <vector>
-#include <tuple> // for tuple 
+//#include <tuple> // for tuple 
 
 #include <iostream>
 #include <string>
@@ -217,7 +217,6 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg, int n_threads)
             objMsg.header.stamp = current_time;
             objMsg.label = class_names[obj.label];
             objMsg.probability = obj.prob;
-            objMsg.threshold = prob_threshold;
             objMsg.distance = distance;
       
             objMsg.wyolo = obj.rect.width;

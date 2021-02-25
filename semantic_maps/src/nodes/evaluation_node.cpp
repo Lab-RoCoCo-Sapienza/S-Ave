@@ -7,21 +7,22 @@
 
 #include <vector>
 #include <string>
+#include <cmath>
 
 // CHANGE
-const int total_n_objects = 2; // total number of objects in the chosen scene
+float total_n_objects = 2.0f; // total number of objects in the chosen scene
 
 
 
 float computeONI(int n_detected) {
-  float oni = n_detected / total_n_objects;
+  float oni = (float) (n_detected / total_n_objects);
+  return oni;
 }
 
 /*
 Object message has the following fields that are necessary to compute ORI:
 string label         # class of the object
 float32 probability  # detection probability
-float32 threshold    # probability threshold
 float32 distance     # robot-object distance
 float32 hgazebo      # height of the bounding box in Gazebo
 float32 wgazebo      # width of the bounding box in Gazebo
@@ -32,24 +33,52 @@ int32 count
 To obtain the value of one of the fields, we need to do: 
 obj.(name_of_the_field), as for example obj.label or obj.hgazebo
 */
-float computeORI(const semantic_maps::ObjectArray::ConstPtr &msg) {
-  for (int i=0; i<msg->objects.size(); ++i) {
-      const semantic_maps::Object &obj = msg->objects[i]; // access the Object at index i
+std::vector<float> computeORI(const semantic_maps::ObjectArray::ConstPtr &msg) {
+    float ORI = 0.0f;
+    float ORI_conf = 0.0f;
+    float ORI_scaled = 0.0f;
+    std::vector<float> ORI_vector;
+
+    for (int i=0; i<msg->objects.size(); ++i) {
+        const semantic_maps::Object &obj = msg->objects[i]; // access the Object at index i
+        float h_y_obj_i = msg->objects[i].hyolo;
+	    float w_y_obj_i = msg->objects[i].wyolo;
+	    float h_g_obj_i = msg->objects[i].hgazebo;
+	    float w_g_obj_i = msg->objects[i].wgazebo;
+	    float confidence_i = msg->objects[i].probability;
+	
+	    float Area_y = h_y_obj_i * w_y_obj_i;
+	    float Area_g = h_g_obj_i * w_g_obj_i;
       
+	    float scaling_factor_i = msg->objects[i].distance/1000.0f;
+
+	    float ori_i = pow(Area_y,2.0f) / pow(Area_g,2.0f);
+	    float ori_conf = ori_i * confidence_i; //* 100.0f;
+	    float ori_scaled = ori_i * scaling_factor_i;
+
+	    ORI = ORI + ori_i;
+	    ORI_conf = ORI_conf + ori_conf;
+	    ORI_scaled = ORI_scaled + ori_scaled;
   }
-  return 0.0;
+
+  ORI_vector.push_back(ORI);
+  ORI_vector.push_back(ORI_conf);
+  ORI_vector.push_back(ORI_scaled);
+
+  return ORI_vector;
 }
 
 
 void ListObjCallback(const semantic_maps::ObjectArray::ConstPtr &msg) {
-	ROS_INFO("Subscribed to 'detected_objects' topic");
+    ROS_INFO("Subscribed to 'detected_objects' topic");
 
-  int idx_last_obj = msg->objects.size()-1;
-  int n_detected = msg->objects[idx_last_obj].count; // number of detected objects
-  ROS_INFO("Total number of detected objects: %d", n_detected);
-  float oni = computeONI(n_detected);
-  float ori = computeORI(msg);
-  
+    int idx_last_obj = msg->objects.size()-1;
+    int n_detected = msg->objects[idx_last_obj].count; // number of detected objects
+    ROS_INFO("Total number of detected objects: %d", n_detected);
+    float oni = computeONI(n_detected);
+    ROS_INFO("Final oni: %.3f", oni);
+    std::vector<float> ori_vec = computeORI(msg);
+    ROS_INFO("Final ori_vec: %.3f, %.3f, %.3f", ori_vec[0], ori_vec[1], ori_vec[2]);
 }
 
 
