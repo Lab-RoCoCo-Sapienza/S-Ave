@@ -55,7 +55,6 @@ double prob_threshold;
 bool enable_gpu;
 
 std::string prev_label = "";
-std::string delimiter = "_";
 bool stationary_robot = false;
 bool moved = true;
 bool obj_multiple_detection;
@@ -223,27 +222,46 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg, int n_threads)
             objMsg.hyolo = obj.rect.height;
             objMsg.count = detected_objects;
 
-            std::string first_part;
-            for(int i=0; i < num_models; ++i){
+            std::string final_name;
+            for(int i=0; i < num_models; ++i) {
               std::string model_name = logical_image_msg_ptr->models[i].type;
-              if (model_name.find(delimiter) != std::string::npos) {
-                first_part = model_name.substr(0, model_name.find(delimiter)); 
-              } else {
-                first_part = model_name;
-              }
               
-              if (first_part.c_str() == objMsg.label) {
+              if (model_name.find("desk") || model_name.find("table")) {
+                final_name = "dining table";
+              } else if (model_name.find("monitor_pc") || model_name.find("tv")) {
+                final_name = "tv";
+              } else if (model_name.find("chair")) {
+                final_name = "chair";
+              } else if (model_name.find("pc")) {
+                final_name = "laptop";
+              } else if (model_name.find("refrigerator")) {
+                final_name = "refrigerator";
+              } else if (model_name.find("sofa")) {
+                final_name = "couch";
+              } else if (model_name.find("books")) {
+                final_name = "book";
+              } else if (model_name.find("bed")) {
+                final_name = "bed";
+              } else if (model_name.find("sink")) {
+                final_name = "sink";
+              } else if (model_name.find("stove")) {
+                final_name = "oven";
+              } else if (model_name.find("toilet")) {
+                final_name = "toilet";
+              } else if (model_name.find("microwave")) {
+                final_name = "microwave";
+              }
+
+              
+              if (final_name.c_str() == objMsg.label) {
                 objMsg.wgazebo = (logical_image_msg_ptr->models[i].size.x) * 1000.0f; // length in mm
                 objMsg.hgazebo = (logical_image_msg_ptr->models[i].size.z) * 1000.0f; // length in mm
-                ROS_INFO("Gazebo Model: %s = %.3f, %.3f", first_part.c_str(), objMsg.wgazebo, objMsg.hgazebo);
+                ROS_INFO("Gazebo Model: %s = %.3f, %.3f", final_name.c_str(), objMsg.wgazebo, objMsg.hgazebo);
                 list_obj_msg.objects.push_back(objMsg);
                 //obj_pub.publish(objMsg);
               }
             }
           }
-    
-            
-            
 
             //float area = obj.rect.width * obj.rect.height;
             //ROS_INFO("Yolo Area = %.2f ", area);
