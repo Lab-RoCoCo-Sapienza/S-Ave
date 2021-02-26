@@ -332,8 +332,8 @@
          <plugin name="logical_camera_plugin" filename="liblogical_camera_plugin.so"/>
 
           <logical_camera>
-            <near>2.0</near>
-            <far>2.0</far>
+            <near>1.2</near>
+            <far>1.2</far>
             <horizontal_fov>0.4</horizontal_fov>
             <aspect_ratio>1.1</aspect_ratio>
             <!--<horizontal_fov>${60.0*M_PI/180.0}</horizontal_fov>

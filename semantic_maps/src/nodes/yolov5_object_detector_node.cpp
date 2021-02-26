@@ -223,9 +223,14 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg, int n_threads)
             objMsg.hyolo = obj.rect.height;
             objMsg.count = detected_objects;
 
+            std::string first_part;
             for(int i=0; i < num_models; ++i){
               std::string model_name = logical_image_msg_ptr->models[i].type;
-              std::string first_part = model_name.substr(0, model_name.find(delimiter)); 
+              if (model_name.find(delimiter) != std::string::npos) {
+                first_part = model_name.substr(0, model_name.find(delimiter)); 
+              } else {
+                first_part = model_name;
+              }
               
               if (first_part.c_str() == objMsg.label) {
                 objMsg.wgazebo = (logical_image_msg_ptr->models[i].size.x) * 1000.0f; // length in mm
