@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <launch>
 
-  <arg name="world" default="$(find semantic_maps)/worlds/restaurant.world" />
+  <arg name="world" default="$(find semantic_maps)/worlds/apartment_2.world" />
+  <!--<arg name="world" default="worlds/empty_world" />-->
 
   <!-- Launch the empty world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="worlds/empty_world"/> 
+    <arg name="world_name" value="$(arg world)"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
