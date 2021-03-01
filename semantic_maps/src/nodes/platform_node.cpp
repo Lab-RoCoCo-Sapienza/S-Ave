@@ -30,8 +30,8 @@
 using namespace srrg_core;
 using namespace Eigen;
 
-//geometry_msgs::PoseStamped start_pose;
-//geometry_msgs::PoseStamped goal_pose;
+geometry_msgs::PoseStamped start_pose;
+geometry_msgs::PoseStamped goal_pose;
 
 
 void MapCallback(const nav_msgs::OccupancyGrid::ConstPtr &msg) {
@@ -39,9 +39,9 @@ void MapCallback(const nav_msgs::OccupancyGrid::ConstPtr &msg) {
 }
 
 
-//void MoveBaseCallback(const geometry_msgs::PoseStamped::ConstPtr &msg) {
-//  	ROS_INFO("Subscribed to 'move_base_simple/goal' topic");  	
-//}
+void MoveBaseCallback(const geometry_msgs::PoseStamped::ConstPtr &msg) {
+  	ROS_INFO("Subscribed to 'move_base_simple/goal' topic");  	
+}
 
 
 bool receiveOccupancyGridMsg(float &resolution,
@@ -178,8 +178,8 @@ int main(int argc, char **argv){
 
   if (getCameraTf(camera_transform)){
   	ROS_INFO("Received camera transformation matrix!");
-	std::cout << "Translation: " << std::endl << camera_transform.translation() << std::endl;
-	std::cout << "Rotation: " << std::endl << camera_transform.linear() << std::endl;
+	  std::cout << "Translation: " << std::endl << camera_transform.translation() << std::endl;
+	  std::cout << "Rotation: " << std::endl << camera_transform.linear() << std::endl;
   }
 
   if(receiveOccupancyGridMsg(resolution,origin,occupancy_grid)){
@@ -205,13 +205,13 @@ int main(int argc, char **argv){
    topic and use it directly */
 
   /* SUBSCRIPTION to 'move_base_simple/goal' topic */
-  /*ros::Subscriber move_base_sub = nh.subscribe("move_base_simple/goal", 10, MoveBaseCallback);
+  ros::Subscriber move_base_sub = nh.subscribe("move_base_simple/goal", 10, MoveBaseCallback);
 
   boost::shared_ptr<geometry_msgs::PoseStamped const> goal_msg_ptr;
-  goal_msg_ptr = ros::topic::waitForMessage<geometry_msgs::PoseStamped> ("move_base_simple/goal", ros::Duration (50));*/
+  goal_msg_ptr = ros::topic::waitForMessage<geometry_msgs::PoseStamped> ("move_base_simple/goal", ros::Duration (50));
 		
   /* SERVICE 'move_base/make_plan' */
-  /*start_pose.header.seq = 0;
+  start_pose.header.seq = 0;
   start_pose.header.stamp = ros::Time(0);
   start_pose.header.frame_id = "map";
   start_pose.pose.position.x = robot_pose.translation()[0];
@@ -243,11 +243,11 @@ int main(int argc, char **argv){
   nav_msgs::GetPlan srv;
   srv.request.start = start_pose;
   srv.request.goal = goal_pose;
-  srv.request.tolerance = 1.5;*/
+  srv.request.tolerance = 1.5;
 
 
   /* If a plan exists, it is printed the number '1' in the terminal */
-  //ROS_INFO("Make plan: %d", (check_path.call(srv) ? 1 : 0));	
+  ROS_INFO("Make plan: %d", (check_path.call(srv) ? 1 : 0));	
 
 
   // Topic 'robot_pose' 

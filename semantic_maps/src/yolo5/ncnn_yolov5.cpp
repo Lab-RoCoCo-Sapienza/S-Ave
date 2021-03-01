@@ -532,7 +532,7 @@ void ncnnYoloV5::draw(const cv::Mat& bgr, const std::vector<Object>& objects, do
         cv::putText(image, text, cv::Point(x, y + label_size.height),
                     cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0));
     }
-
+    cv::putText(image, std::to_string(1/dT)+" Hz", cv::Point(20, 20), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(255, 255, 255));
     cv::imshow("Yolo v5", image);
     cv::waitKey(0);
 }

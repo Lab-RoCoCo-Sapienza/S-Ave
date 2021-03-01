@@ -1,5 +1,6 @@
 Header header
 string label
+string taxonomy
 float32 probability    
 float32 distance     # robot-object distance
 float32 hgazebo      # height of the bounding box in Gazebo

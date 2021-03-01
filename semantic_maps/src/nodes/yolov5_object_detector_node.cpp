@@ -216,44 +216,47 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg, int n_threads)
             objMsg.header.stamp = current_time;
             objMsg.label = class_names[obj.label];
             objMsg.probability = obj.prob;
-            objMsg.distance = distance;
-      
+            objMsg.distance = distance;   
             objMsg.wyolo = obj.rect.width;
             objMsg.hyolo = obj.rect.height;
             objMsg.count = detected_objects;
 
-            std::string final_name;
+            std::string final_name = "";
+
             for(int i=0; i < num_models; ++i) {
               std::string model_name = logical_image_msg_ptr->models[i].type;
-              
-              if (model_name.find("desk") || model_name.find("table")) {
-                final_name = "dining table";
-              } else if (model_name.find("monitor_pc") || model_name.find("tv")) {
-                final_name = "tv";
-              } else if (model_name.find("chair")) {
+              if (model_name.find("chair") != std::string::npos) {
                 final_name = "chair";
-              } else if (model_name.find("pc")) {
+              } else if (model_name.find("desk") != std::string::npos) {
+                final_name = "dining table";
+              } else if (model_name.find("table") != std::string::npos) {
+                final_name = "dining table";
+              } else if (model_name.find("monitor_pc") != std::string::npos) {
+                final_name = "tv";
+              } else if (model_name.find("tv") != std::string::npos) {
+                final_name = "tv";
+              } else if (model_name.find("pc") != std::string::npos) {
                 final_name = "laptop";
-              } else if (model_name.find("refrigerator")) {
+              } else if (model_name.find("refrigerator") != std::string::npos) {
                 final_name = "refrigerator";
-              } else if (model_name.find("sofa")) {
+              } else if (model_name.find("sofa") != std::string::npos) {
                 final_name = "couch";
-              } else if (model_name.find("books")) {
+              } else if (model_name.find("books") != std::string::npos) {
                 final_name = "book";
-              } else if (model_name.find("bed")) {
+              } else if (model_name.find("bed") != std::string::npos) {
                 final_name = "bed";
-              } else if (model_name.find("sink")) {
+              } else if (model_name.find("sink") != std::string::npos) {
                 final_name = "sink";
-              } else if (model_name.find("stove")) {
+              } else if (model_name.find("stove") != std::string::npos) {
                 final_name = "oven";
-              } else if (model_name.find("toilet")) {
+              } else if (model_name.find("toilet") != std::string::npos) {
                 final_name = "toilet";
-              } else if (model_name.find("microwave")) {
+              } else if (model_name.find("microwave") != std::string::npos) {
                 final_name = "microwave";
               }
 
-              
-              if (final_name.c_str() == objMsg.label) {
+              //ROS_INFO("Comparison %s, %s", final_name.c_str(), objMsg.label.c_str()  );
+              if (final_name == objMsg.label) {
                 objMsg.wgazebo = (logical_image_msg_ptr->models[i].size.x) * 1000.0f; // length in mm
                 objMsg.hgazebo = (logical_image_msg_ptr->models[i].size.z) * 1000.0f; // length in mm
                 ROS_INFO("Gazebo Model: %s = %.3f, %.3f", final_name.c_str(), objMsg.wgazebo, objMsg.hgazebo);

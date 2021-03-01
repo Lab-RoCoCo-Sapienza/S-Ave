@@ -1,4 +1,3 @@
-#include <iostream>
 #include <ros/ros.h>
 #include <ros/package.h>
 #include <ros/console.h>
@@ -41,6 +40,7 @@ std::vector<float> computeORI(const semantic_maps::ObjectArray::ConstPtr &msg) {
     for (int i=0; i<msg->objects.size(); ++i) {
       const semantic_maps::Object &obj = msg->objects[i]; // access the Object at index i
       std::string label_i = msg->objects[i].label;
+      std::string taxonomy_i = msg->objects[i].taxonomy;
       float h_y_obj_i = msg->objects[i].hyolo;
 	    float w_y_obj_i = msg->objects[i].wyolo;
 	    float h_g_obj_i = msg->objects[i].hgazebo;
@@ -64,6 +64,7 @@ std::vector<float> computeORI(const semantic_maps::ObjectArray::ConstPtr &msg) {
 
       ROS_INFO("      Object %d", i);
       ROS_INFO("Label: %s", label_i.c_str());
+      ROS_INFO("Taxonomy: %s", taxonomy_i.c_str());
       ROS_INFO("Probability: %.3f", confidence_i);
       ROS_INFO("Distance: %.3f", distance_i);
       ROS_INFO("Height_Gazebo: %.3f", h_g_obj_i);
@@ -93,24 +94,23 @@ std::vector<float> computeORI(const semantic_maps::ObjectArray::ConstPtr &msg) {
 }
 
 
-float computeONI(int n_detected) {
+/*float computeONI(int n_detected) {
   float oni = (float) (n_detected / total_n_objects);
   ROS_INFO("ONI: %.3f", oni);
   ROS_INFO("\n");
   return oni;
-}
+}*/
 
 
 void ListObjCallback(const semantic_maps::ObjectArray::ConstPtr &msg) {
-    ROS_INFO("Subscribed to 'detected_objects' topic");
+  ROS_INFO("Subscribed to 'objects_taxonomy' topic");
 
 	int idx_last_obj = msg->objects.size()-1;
 	int n_detected = msg->objects[idx_last_obj].count; // number of detected objects
 	ROS_INFO("Total number of detected objects: %d", n_detected);
 	std::vector<float> ori_vec = computeORI(msg);
-	//ROS_INFO("Final ori_vec: %.3f, %.3f, %.3f", ori_vec[0], ori_vec[1], ori_vec[2]);
-	float oni = computeONI(n_detected);
-	//ROS_INFO("Final oni: %.3f", oni);
+	
+  //float oni = computeONI(n_detected);
 }
 
 
@@ -123,7 +123,7 @@ int main(int argc, char **argv){
   ros::init(argc,argv,"evaluation_node");
   ros::NodeHandle nh;
 
-  ros::Subscriber list_obj_sub = nh.subscribe("detected_objects", 10, ListObjCallback);
+  ros::Subscriber list_obj_sub = nh.subscribe("objects_taxonomy", 10, ListObjCallback);
 
 
   /* PUBLISHERS */
