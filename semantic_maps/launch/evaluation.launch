@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <launch>
   <arg name="world_name" default="prof_office" />
+  <arg name="exploration_mode" default="teleop" />
+    
   <node name="evaluation_node" pkg="semantic_maps" type="evaluation_node" output="screen">
    <param name="world_name" value="$(arg world_name)"/>
+   <param name="exploration_mode" value="$(arg exploration_mode)"/>
   </node>
 </launch>

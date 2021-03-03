@@ -2,6 +2,7 @@
 <launch>
 
   <arg name="world_name" default="prof_office" />
+  <arg name="exploration_mode" default="teleop" />
   <arg name="world" default="$(find semantic_maps)/worlds/prof_office.world" />
   <arg name="launch_complete_pipeline" default="false" />
   <!--<arg name="world" default="worlds/empty_world" />-->
@@ -44,6 +45,7 @@
   <include file="$(find semantic_maps)/launch/yolov5l.launch"/>
   <include file="$(find semantic_maps)/launch/evaluation.launch">
     <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="exploration_mode" value="$(arg exploration_mode)"/>
   </include>
   <node name="spatial_knowledge_node" pkg="semantic_maps" type="spatial_knowledge_node"/>
 <!--  <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" args="cmd:=/lucrezio/cmd_vel" />-->
