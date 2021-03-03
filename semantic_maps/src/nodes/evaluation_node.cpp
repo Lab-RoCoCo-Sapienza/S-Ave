@@ -215,7 +215,7 @@ int main(int argc, char **argv){
 
   
   //nh.getParam("world_name", world_name);	
-  nh.param<std::string>("world_name", world_name, "apartment_2");	
+  nh.param<std::string>("/evaluation_node/world_name", world_name, "apartment_2");	
   ROS_INFO("WORLD NAME: %s", world_name.c_str());
   ros::Subscriber list_obj_sub = nh.subscribe("objects_taxonomy", 10, ListObjCallback);
 
@@ -224,7 +224,7 @@ int main(int argc, char **argv){
   iso_time_str = boost::posix_time::to_iso_extended_string(my_posix_time);
   counter = 0;
 
-  total_n_objects = total_n_objects_map.at("world_name");
+  total_n_objects = total_n_objects_map.at(world_name);
 
 
   ros::spin();

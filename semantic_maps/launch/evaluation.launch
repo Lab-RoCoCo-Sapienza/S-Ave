@@ -1,4 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-  <node name="evaluation_node" pkg="semantic_maps" type="evaluation_node" output="screen"/>
+  <arg name="world_name" default="prof_office" />
+  <node name="evaluation_node" pkg="semantic_maps" type="evaluation_node" output="screen">
+   <param name="world_name" value="$(arg world_name)"/>
+  </node>
 </launch>
