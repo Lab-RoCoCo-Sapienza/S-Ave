@@ -153,11 +153,6 @@ std::vector<float> computeORI(const semantic_maps::ObjectArray::ConstPtr &msg) {
   return ORI_vector;
 }
 
-// dict: stringa vect<float>
-
-// ori, valore
-// opi, valore
-
 
 
 float computeONI(int n_detected) {
@@ -181,7 +176,6 @@ void ListObjCallback(const semantic_maps::ObjectArray::ConstPtr &msg) {
     int idx_last_obj = msg->objects.size()-1;
     if (idx_last_obj < 0) return;
     int n_detected = msg->objects[idx_last_obj].count; // number of detected objects
-//    ROS_INFO("Timestamp: %f", msg->header.stamp);
 
     ROS_INFO("Total number of detected objects: %d", n_detected);
     std::vector<float> ori_vec = computeORI(msg);
@@ -199,18 +193,13 @@ void ListObjCallback(const semantic_maps::ObjectArray::ConstPtr &msg) {
 
 
     std::string save_path_relative = ros::package::getPath("semantic_maps");
-    std::string save_path = save_path_relative+"/results/teleop/"+world_name+"/" /*+ std::to_string(counter) */+ iso_time_str + ".json";
+    std::string save_path = save_path_relative+"/results/teleop/"+world_name+"/"+ iso_time_str + ".json";
 
     ROS_INFO("ITERATION: %i \n", ++counter);
 
     saveMetricsToJSON(save_path, metrics_dict);
 
 
-    
-    //ROS_INFO("Final ori_vec: %.3f, %.3f, %.3f", ori_vec[0], ori_vec[1], ori_vec[2]);
-    //float oni = computeONI(n_detected);
-
-    //ROS_INFO("Final oni: %.3f", oni);
 }
 
 
@@ -237,14 +226,6 @@ int main(int argc, char **argv){
 
   total_n_objects = total_n_objects_map.at("world_name");
 
-
-
-  /* PUBLISHERS */
-
-  //ros::Publisher camera_tf_pub = nh.advertise<geometry_msgs::Transform>("camera_tf", 10);
-  //camera_tf_pub.publish(p);
-  //ROS_INFO("Published 'camera_tf' topic");
-  
 
   ros::spin();
 
