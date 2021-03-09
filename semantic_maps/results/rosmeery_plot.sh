@@ -25,8 +25,9 @@ for env in "${environments[@]}" ; do
         json_load_paths="${json_load_paths} ${RESULTS_LOAD_PATH}/${env}/${alg}/"
     done
 
+# ori_distance
     python3 rosmeery_plot.py --save-dir ${PLOTS_SAVE_PATH} \
-           --metric-keys time_s opi ori_surface ori_confidence ori_distance \
+           --metric-keys time_s opi ori_surface ori_confidence  \
            --json-load-path ${json_load_paths}
     echo -en "\n"
 done

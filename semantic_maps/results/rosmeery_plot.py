@@ -34,6 +34,14 @@ alg_name_to_legend_label = {
     "random_walk": "random"
 }
 
+# todo(rfr4n) remove this shit, it is due the fact that ori is not computed correctly in json
+experiment_id_to_objects_number = {
+    "rococo_lab": 21,
+    "apartment_4": 35,
+    "phd_office": 41,
+    "prof_office": 11
+}
+
 # values
 color_map = {
     "red": np.array([251, 180, 174])/255.0,
@@ -71,7 +79,7 @@ def define_arguments() -> Any:
     return parser.parse_args()
 
 
-def array_form_lists(input_list: List[List[List[float]]]) -> np.ndarray:
+def array_form_lists(experiment_id: str, input_list: List[List[List[float]]]) -> np.ndarray:
     max_iteration = 10e10
 
     all_metric_data = []
@@ -85,6 +93,8 @@ def array_form_lists(input_list: List[List[List[float]]]) -> np.ndarray:
             input_list[i][j] = input_list[i][j][:max_iteration]
 
         metric_data = np.array(input_list[i], dtype=np.float32)
+        if experiment_id in experiment_id_to_objects_number:
+            metric_data *= 1./experiment_id_to_objects_number[experiment_id]
         metric_data_avg = np.expand_dims(np.mean(metric_data, axis=0), axis=-1)
         metric_data_stdd = np.expand_dims(np.std(metric_data, axis=0), axis=-1)
         all_metric_data.append(np.concatenate([metric_data_avg, metric_data_stdd], axis=-1))
@@ -114,12 +124,12 @@ def load_metrics(file_paths: List[str], metric_keys: List[str]) -> Dict[str, Exp
                     assert m in json_data, f'Metric {m} not in json file with keys: {json_data.keys()}.'
                     experiment_data.append(json_data[m])
 
-            # if experiment_id is None:
             experiment_id = p.split('/')[-3 if p.endswith('/') else -2]
             metric_names_list.append(p.split('/')[-2 if p.endswith('/') else -1])
             metric_data_list.append(experiment_data)
 
-        metric_data = array_form_lists(metric_data_list)
+        metric_data = array_form_lists(experiment_id=experiment_id if 'ori' in m else 'none',
+                                       input_list=metric_data_list)
         assert experiment_id is not None, f'Experiment id not found.'
         metrics_dict.update({m: ExperimentSpecs(experiment_id=experiment_id,
                                                 names=metric_names_list, value=metric_data)})
@@ -131,8 +141,8 @@ def load_metrics(file_paths: List[str], metric_keys: List[str]) -> Dict[str, Exp
 def plot(plot_handle: Any, metrics_data: ExperimentSpecs) -> None:
     for i, n in enumerate(metrics_data.names):
         metric_data_mean = metrics_data.value[i, ..., 0]
-        metric_data_ub = metrics_data.value[i, ..., 0] + metrics_data.value[i, ..., 1]
-        metric_data_lb = metrics_data.value[i, ..., 0] - metrics_data.value[i, ..., 1]
+        metric_data_ub = metric_data_mean + metrics_data.value[i, ..., 1]
+        metric_data_lb = metric_data_mean - metrics_data.value[i, ..., 1]
         metric_data_xticks = np.arange(metric_data_mean.shape[0])
 
         color = color_map[colors[i % len(color_map)]]
@@ -146,7 +156,7 @@ def plot(plot_handle: Any, metrics_data: ExperimentSpecs) -> None:
 
 def configure_plot_info(plot_handle: Any, title: str, xtick_labels: List[str], x_label: str, y_label: str,
                         legend_pose: str, font_sz: int, legend_font_sz: int, ticks_font_sz: int) -> None:
-    plot_handle.legend(loc=legend_pose, fontsize=legend_font_sz, ncol=2)
+    plot_handle.legend(loc=legend_pose, fontsize=legend_font_sz, ncol=1)
     plot_handle.xlabel(x_label, fontsize=font_sz)
     plot_handle.ylabel(y_label, fontsize=font_sz)
     plot_handle.yticks(fontsize=ticks_font_sz)
@@ -158,12 +168,16 @@ def configure_plot_info(plot_handle: Any, title: str, xtick_labels: List[str], x
     axis_handle.grid(color='gainsboro', linestyle='--', linewidth=0.1, alpha=0.5)
     axis_handle.set_axisbelow(True)
     axis_handle.ticklabel_format(axis='y', useOffset=False)
-    axis_handle.set_xticklabels([r'' + " " + str(int(t)) for t in xtick_labels], fontsize=ticks_font_sz)
+    axis_handle.set_xticks([x for x in range(len(xtick_labels))])
+    axis_handle.set_xticklabels([r'' + str(int(t)) if i % 3 == 1 else '' for i,
+                                 t in enumerate(xtick_labels)], fontsize=ticks_font_sz)
 
 
 def plot_metrics(save_dir: str, metrics_data: Dict[str, ExperimentSpecs],
                  font_sz: int = 18, legend_font_sz: int = 20, ticks_font_sz: int = 16) -> None:
-    xtick_labels = metrics_data['time_s'].value[0, :, 0].astype(dtype=np.int32).astype(dtype=np.str)
+    xtick_labels = metrics_data['time_s'].value[0, :, 0].astype(dtype=np.int32)
+    xtick_labels -= xtick_labels[0]
+    xtick_labels = xtick_labels.astype(dtype=np.str)
 
     for metric_key, metric_results in metrics_data.items():
         if metric_key == 'time_s':
