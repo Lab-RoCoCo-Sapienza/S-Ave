@@ -230,6 +230,44 @@ Isometry3fVector generateCandidateViews_Save(semantic_maps::Object& nearest_obje
   return candidate_views;
 }
 
+Isometry3fVector generateCandidateViews_ave(semantic_maps::Object& nearest_object){
+
+  Eigen::Vector3f squaredDistances;
+  float OFFSET = 0.1;
+  float CLEARANCE = 0.6; 
+  
+  float ratio = nearest_object.hyolo/nearest_object.wyolo;
+
+  Isometry3fVector candidate_views;
+  float center_x = (nearest_object.max.x + nearest_object.min.x)/2.0f;
+  float center_y = (nearest_object.min.y + ratio*nearest_object.min.y)/2.0f;
+
+  squaredDistances[0] = pow(center_x-(nearest_object.max.x + OFFSET), 2);
+  squaredDistances[1] = pow(center_y-(nearest_object.max.y + OFFSET), 2);
+
+  // get the distance between a corner and the centroid (it will be the radius)
+  auto radius = sqrt(squaredDistances[0] + squaredDistances[1]) + CLEARANCE;
+
+
+  float centroid_x = center_x;
+  float centroid_y = center_y;
+  
+  std::cout << "[INFO] CENTROID AT: " << centroid_x << " - " << centroid_y << std::endl;
+
+
+  for(int i=0; i < CANDIDATE_NUM; i++){
+    float alpha = i * (2*M_PI/((float)CANDIDATE_NUM));
+    float x = radius * cos(alpha);
+    float y = radius * sin(alpha);
+    float theta = atan2(-y,-x);
+
+    Eigen::Isometry3f T = v2t(Eigen::Vector3f(centroid_x + x, centroid_y + y, theta));
+
+    candidate_views.push_back(T);
+  }
+  
+  return candidate_views;
+}
 
 
 // -------------------------------------------------------
@@ -302,7 +340,11 @@ int main(int argc, char **argv){
       } else { 
         std::cerr << "First time running the model" << nearest_object.label.c_str() << "generating CandidateViews... " << std::endl;
         //generate candidate views
-        candidate_view = generateCandidateViews_Save(nearest_object); //  use S_AvE
+        if (SAVE)
+            candidate_view = generateCandidateViews_Save(nearest_object); //  use S_AvE
+        else
+            candidate_view = generateCandidateViews_ave(nearest_object); //  use AvE
+        
         candidate_views_list.push_back(candidate_view);
         processed_objects_list.push_back(nearest_object.label);
         current_views = 0;
