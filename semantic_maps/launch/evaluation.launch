@@ -2,9 +2,11 @@
 <launch>
   <arg name="world_name" default="prof_office" />
   <arg name="exploration_mode" default="teleop" />
+  <arg name="semantic_exploration" default="s-ave" />
     
   <node name="evaluation_node" pkg="semantic_maps" type="evaluation_node" output="screen">
    <param name="world_name" value="$(arg world_name)"/>
    <param name="exploration_mode" value="$(arg exploration_mode)"/>
+   <param name="semantic_exploration" value="$(arg semantic_exploration)"/>
   </node>
 </launch>
