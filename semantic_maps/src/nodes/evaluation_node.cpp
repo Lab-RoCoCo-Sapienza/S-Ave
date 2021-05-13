@@ -195,7 +195,8 @@ void ListObjCallback(const semantic_maps::ObjectArray::ConstPtr &msg) {
 
 
     std::string save_path_relative = ros::package::getPath("semantic_maps");
-    std::string save_path = save_path_relative+"/results/" + world_name +"/"+ exploration_mode +"/"+ iso_time_str + ".json";
+    std::string save_path = save_path_relative+"/results/" + world_name +"/"+ exploration_mode + "/"
+         + semantic_exploration +"/"+ iso_time_str + ".json";
 
     ROS_INFO("ITERATION: %i, t-t0(s): %f", ++counter, time_s);
 
