@@ -42,6 +42,15 @@
   <node name="lucrezio_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="lucrezio" />  
 
 
+ <group if="$(arg launch_random_walker)">
+  <include file="$(find semantic_maps)/launch/gmapping.launch"/>
+  <include file="$(find semantic_maps)/launch/move_base.launch"/>
+  <node name="random_walker_node" pkg="random_walker" type="random_walker_node"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find semantic_maps)/maps/$(arg world_name)_map.yaml"/>
+ </group>  
+
+
+
  <group if="$(arg launch_complete_pipeline)">
   <include file="$(find semantic_maps)/launch/yolov5l.launch"/>
   <include file="$(find semantic_maps)/launch/evaluation.launch">
@@ -57,12 +66,6 @@
 <!--  <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" args="cmd:=/lucrezio/cmd_vel" />-->
  </group>  
 
- <group if="$(arg launch_random_walker)">
-  <include file="$(find semantic_maps)/launch/gmapping.launch"/>
-  <include file="$(find semantic_maps)/launch/move_base.launch"/>
-  <node name="random_walker_node" pkg="random_walker" type="random_walker_node"/>
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find semantic_maps)/maps/$(arg world_name)_map.yaml"/>
- </group>  
 
 
 </launch>
