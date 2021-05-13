@@ -58,7 +58,7 @@
     <arg name="exploration_mode" value="$(arg exploration_mode)"/>
     <arg name="semantic_exploration" value="$(arg semantic_exploration)"/>
   </include>
-    <include file="$(find semantic_maps)/launch/s_ave.launch"/>
+    <include file="$(find semantic_maps)/launch/s_ave.launch">
     <arg name="semantic_exploration" value="$(arg semantic_exploration)"/>
   </include>
   <node name="spatial_knowledge_node" pkg="semantic_maps" type="spatial_knowledge_node"/>
