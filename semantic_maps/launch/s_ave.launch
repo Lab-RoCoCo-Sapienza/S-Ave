@@ -2,7 +2,7 @@
 <launch>
   <arg name="semantic_exploration" default="s-ave" />
   
-  <node name="s_ave_node" pkg="s_ave_node" type="platform_node" output="screen">
+  <node name="s_ave_node" pkg="semantic_maps" type="s_ave_node" output="screen">
      <param name="semantic_exploration" value="$(arg semantic_exploration)"/>
   </node>
 </launch>
