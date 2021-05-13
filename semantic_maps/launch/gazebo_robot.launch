@@ -49,6 +49,9 @@
     <arg name="exploration_mode" value="$(arg exploration_mode)"/>
     <arg name="semantic_exploration" value="$(arg semantic_exploration)"/>
   </include>
+    <include file="$(find semantic_maps)/launch/s_ave.launch"/>
+    <arg name="semantic_exploration" value="$(arg semantic_exploration)"/>
+  </include>
   <node name="spatial_knowledge_node" pkg="semantic_maps" type="spatial_knowledge_node"/>
 
 <!--  <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" args="cmd:=/lucrezio/cmd_vel" />-->
@@ -57,7 +60,6 @@
  <group if="$(arg launch_random_walker)">
   <include file="$(find semantic_maps)/launch/gmapping.launch"/>
   <include file="$(find semantic_maps)/launch/move_base.launch"/>
-  <include file="$(find semantic_maps)/launch/s_ave.launch"/>
   <node name="random_walker_node" pkg="random_walker" type="random_walker_node"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find semantic_maps)/maps/$(arg world_name)_map.yaml"/>
  </group>  
