@@ -14,7 +14,6 @@
 typedef std::vector<Eigen::Isometry3f, Eigen::aligned_allocator<Eigen::Isometry3f> > Isometry3fVector;
 typedef std::vector<std::string> StringVector;
 
-//------------------------------------- 
 
 ros::Publisher marker_pub;
 semantic_maps::ObjectArray semantic_map; // vector of Object messages
@@ -26,8 +25,10 @@ std::queue<Eigen::Vector3f> views;
 Eigen::Isometry3f camera_pose = Eigen::Isometry3f::Identity();
 int CANDIDATE_NUM = 8;
 
+std::string semantic_exploration;
+int save = 1; 
 
-//-------------------------------------
+
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
@@ -276,7 +277,9 @@ int main(int argc, char **argv){
 
   ros::init(argc,argv,"s_ave_node");
   ros::NodeHandle nh;
-
+  nh.param<std::string>("/s_ave_node/semantic_exploration", semantic_exploration, "s-ave");	
+  save = (semantic_exploration.compare("s-ave") == 0);
+  
   MoveBaseClient ac("move_base", true);
 
   marker_pub = nh.advertise<visualization_msgs::Marker>("goal_visualization_marker", 1);
@@ -340,11 +343,13 @@ int main(int argc, char **argv){
       } else { 
         std::cerr << "First time running the model" << nearest_object.label.c_str() << "generating CandidateViews... " << std::endl;
         //generate candidate views
-        if (SAVE)
+        if (save){
             candidate_view = generateCandidateViews_Save(nearest_object); //  use S_AvE
-        else
+            std::cerr << "used S_AvE" << std::endl;
+        } else {
             candidate_view = generateCandidateViews_ave(nearest_object); //  use AvE
-        
+            std::cerr << "used AvE" << std::endl;
+        }
         candidate_views_list.push_back(candidate_view);
         processed_objects_list.push_back(nearest_object.label);
         current_views = 0;

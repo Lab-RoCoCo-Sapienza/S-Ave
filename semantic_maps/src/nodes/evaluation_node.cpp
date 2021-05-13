@@ -22,6 +22,7 @@
 float total_n_objects = 0.f; // total number of objects in the chosen scene
 std::string world_name;
 std::string exploration_mode;
+std::string semantic_exploration;
 
 std::string iso_time_str = "";
 float time_s_init = 0.f;
@@ -214,6 +215,7 @@ int main(int argc, char **argv){
 
   nh.param<std::string>("/evaluation_node/world_name", world_name, "apartment_2");	
   nh.param<std::string>("/evaluation_node/exploration_mode", exploration_mode, "teleop");	
+  nh.param<std::string>("/evaluation_node/semantic_exploration", semantic_exploration, "s-ave");	
   ROS_INFO("WORLD NAME: %s", world_name.c_str());
   ros::Subscriber list_obj_sub = nh.subscribe("objects_taxonomy", 10, ListObjCallback);
 
