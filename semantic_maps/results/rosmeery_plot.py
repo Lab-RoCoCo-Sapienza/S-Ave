@@ -32,7 +32,7 @@ alg_name_to_legend_label = {
     "frontier_exploration": "frontier-exploration",
     "teleop": "user",
     "random_walk": "random",
-    "ave": "ave"
+    "ave": "ave",
     "s-ave": "s-ave"
 }
 
