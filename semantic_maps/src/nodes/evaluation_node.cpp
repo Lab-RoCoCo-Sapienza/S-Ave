@@ -22,7 +22,7 @@
 float total_n_objects = 0.f; // total number of objects in the chosen scene
 std::string world_name;
 std::string exploration_mode;
-std::string semantic_exploration;
+// std::string semantic_exploration;
 
 std::string iso_time_str = "";
 float time_s_init = 0.f;
@@ -195,8 +195,8 @@ void ListObjCallback(const semantic_maps::ObjectArray::ConstPtr &msg) {
 
 
     std::string save_path_relative = ros::package::getPath("semantic_maps");
-    std::string save_path = save_path_relative+"/results/" + world_name +"/"+ exploration_mode + "/"
-         + semantic_exploration +"/"+ iso_time_str + ".json";
+    std::string save_path = save_path_relative+"/results/" + world_name +"/"
+    + exploration_mode + "/" + iso_time_str + ".json";
 
     ROS_INFO("ITERATION: %i, t-t0(s): %f", ++counter, time_s);
 
@@ -216,7 +216,7 @@ int main(int argc, char **argv){
 
   nh.param<std::string>("/evaluation_node/world_name", world_name, "apartment_2");	
   nh.param<std::string>("/evaluation_node/exploration_mode", exploration_mode, "teleop");	
-  nh.param<std::string>("/evaluation_node/semantic_exploration", semantic_exploration, "s-ave");	
+  //nh.param<std::string>("/evaluation_node/semantic_exploration", semantic_exploration, "s-ave");	
   ROS_INFO("WORLD NAME: %s", world_name.c_str());
   ros::Subscriber list_obj_sub = nh.subscribe("objects_taxonomy", 10, ListObjCallback);
 

@@ -278,6 +278,7 @@ int main(int argc, char **argv){
   ros::init(argc,argv,"s_ave_node");
   ros::NodeHandle nh;
   nh.param<std::string>("/s_ave_node/semantic_exploration", semantic_exploration, "s-ave");	
+  //semantic_exploration.compare(2,3, "s-ave") != 0
   save = (semantic_exploration.compare("s-ave") == 0);
   
   MoveBaseClient ac("move_base", true);
