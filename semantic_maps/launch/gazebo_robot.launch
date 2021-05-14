@@ -5,7 +5,7 @@
   <arg name="exploration_mode" default="teleop" />
   <arg name="world" default="$(find semantic_maps)/worlds/prof_office.world" />
   <arg name="launch_complete_pipeline" default="false" />
-  <arg name="semantic_exploration" default="s-ave"/>
+  <!--<arg name="semantic_exploration" default="s-ave"/>-->
   <!--<arg name="world" default="worlds/empty_world" />-->
 
   <!-- Launch the empty world -->
@@ -56,10 +56,10 @@
   <include file="$(find semantic_maps)/launch/evaluation.launch">
     <arg name="world_name" value="$(arg world_name)"/>
     <arg name="exploration_mode" value="$(arg exploration_mode)"/>
-    <arg name="semantic_exploration" value="$(arg semantic_exploration)"/>
+<!--    <arg name="semantic_exploration" value="$(arg semantic_exploration)"/>-->
   </include>
     <include file="$(find semantic_maps)/launch/s_ave.launch">
-    <arg name="semantic_exploration" value="$(arg semantic_exploration)"/>
+<!--    <arg name="semantic_exploration" value="$(arg semantic_exploration)"/>-->
   </include>
   <node name="spatial_knowledge_node" pkg="semantic_maps" type="spatial_knowledge_node"/>
 
