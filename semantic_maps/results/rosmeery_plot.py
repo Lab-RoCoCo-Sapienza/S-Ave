@@ -31,7 +31,9 @@ key_to_plot_title = {
 alg_name_to_legend_label = {
     "frontier_exploration": "frontier-exploration",
     "teleop": "user",
-    "random_walk": "random"
+    "random_walk": "random",
+    "ave": "ave"
+    "s-ave": "s-ave"
 }
 
 # todo(rfr4n) remove this shit, it is due the fact that ori is not computed correctly in json
