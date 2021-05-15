@@ -41,7 +41,7 @@ experiment_id_to_objects_number = {
     "rococo_lab": 21,
     "apartment_4": 35,
     "phd_office": 41,
-    "prof_office": 23
+    "prof_office": 25
 }
 
 # values
