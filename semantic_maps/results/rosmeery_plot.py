@@ -149,7 +149,7 @@ def plot(plot_handle: Any, metrics_data: ExperimentSpecs) -> None:
 
         color = color_map[colors[i % len(color_map)]]
         plot_handle.fill_between(metric_data_xticks, metric_data_ub, metric_data_lb,
-                                 alpha=0.3, edgecolor=0.7*color,
+                                 alpha=0.2, edgecolor=0.7*color,
                                  interpolate=True,
                                  facecolor=np.array(color, ndmin=2))
         plot_handle.plot(metric_data_mean, label=alg_name_to_legend_label[n],
