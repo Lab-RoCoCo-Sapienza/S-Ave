@@ -149,7 +149,7 @@ def plot(plot_handle: Any, metrics_data: ExperimentSpecs) -> None:
 
         color = color_map[colors[i % len(color_map)]]
         plot_handle.fill_between(metric_data_xticks, metric_data_ub, metric_data_lb,
-                                 alpha=0.15, edgecolor=0.8*color,
+                                 alpha=0.15, edgecolor=1*color,
                                  interpolate=True,
                                  facecolor=np.array(color, ndmin=2))
         plot_handle.plot(metric_data_mean, label=alg_name_to_legend_label[n],
@@ -167,7 +167,7 @@ def configure_plot_info(plot_handle: Any, title: str, xtick_labels: List[str], x
     plot_handle.tight_layout()
 
     axis_handle = plot_handle.gca()
-    axis_handle.grid(color='gainsboro', linestyle='--', linewidth=0.1, alpha=0.8)
+    axis_handle.grid(color='gainsboro', linestyle='--', linewidth=0.1, alpha=0.5)
     axis_handle.set_axisbelow(True)
     axis_handle.ticklabel_format(axis='y', useOffset=False)
     axis_handle.set_xticks([x for x in range(len(xtick_labels))])
