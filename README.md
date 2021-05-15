@@ -61,8 +61,8 @@ Both, the **octomap** package and **rviz-plugins** are also required, so to inst
 * `sudo apt-get install ros-melodic-octomap-rviz-plugins` </br>
 
 Another important package to install is **slam-gmapping**: </br>
-`sudo apt-get install ros-melodic-dwa-local-planner` 
-`sudo apt-get install ros-melodic-slam-gmapping` </br>
+* `sudo apt-get install ros-melodic-dwa-local-planner` 
+* `sudo apt-get install ros-melodic-slam-gmapping` </br>
 
 Once all the packages have been downloaded, move to **catkin_ws** workspace and run the command `catkin_make` to compile the code by launching the following command: </br>
 `$ cd ~/catkin_ws && catkin_make`
