@@ -149,7 +149,7 @@ def load_metrics(file_paths: List[str], metric_keys: List[str]) -> Dict[str, Exp
     return metrics_dict
 
 
-def plot(plot_handle: Any, metrics_data: ExperimentSpecs) -> None:
+def plot(plot_handle: Any, metrics_data: ExperimentSpecs) :
     for i, n in enumerate(metrics_data.names):
         metric_data_mean = metrics_data.value[i, ..., 0]
         metric_data_ub = metric_data_mean + metrics_data.value[i, ..., 1]
@@ -161,9 +161,9 @@ def plot(plot_handle: Any, metrics_data: ExperimentSpecs) -> None:
                                  alpha=0.3, edgecolor=0.7*color,
                                  interpolate=True,
                                  facecolor=np.array(color, ndmin=2))
-        plot_handle.plot(metric_data_mean, label=alg_name_to_legend_label[n],
+        l,h = plot_handle.plot(metric_data_mean, label=alg_name_to_legend_label[n],
                          marker='^', markersize='8', markevery=10, color=color)
-
+    return l,h
 
 def configure_plot_info(plot_handle: Any, title: str, xtick_labels: List[str], x_label: str, y_label: str,
                         legend_pose: str, font_sz: int, legend_font_sz: int, ticks_font_sz: int) -> None:
@@ -195,7 +195,7 @@ def plot_metrics(save_dir: str, metrics_data: Dict[str, ExperimentSpecs],
             continue
 
         figure = plt.figure(metric_key)
-        plot(plot_handle=plt, metrics_data=metric_results)
+        l,h = plot(plot_handle=plt, metrics_data=metric_results)
         configure_plot_info(plot_handle=plt, title=key_to_plot_title[metric_key], xtick_labels=xtick_labels,
                             x_label="time [s]", y_label="Score", legend_pose="upper left",
                             font_sz=18, legend_font_sz=16, ticks_font_sz=12)
