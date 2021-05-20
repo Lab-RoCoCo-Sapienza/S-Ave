@@ -68,12 +68,16 @@ colors = ["blue", "red", "green", "purple", "orange",
           "yellow", "brown", "ping", "white", "gray", "black"]
 
 
+
 @dataclasses.dataclass(frozen=True)
 class ExperimentSpecs:
     experiment_id: str
     names: List[str]
     value: np.ndarray
 
+def update_line(num, data, line):
+    line.set_data(data[..., :num])
+    return line,
 
 def define_arguments() -> Any:
     parser = argparse.ArgumentParser(prog='motion_model_training',
