@@ -150,6 +150,7 @@ def load_metrics(file_paths: List[str], metric_keys: List[str]) -> Dict[str, Exp
 
 
 def plot(plot_handle: Any, metrics_data: ExperimentSpecs) :
+    l = None
     for i, n in enumerate(metrics_data.names):
         metric_data_mean = metrics_data.value[i, ..., 0]
         metric_data_ub = metric_data_mean + metrics_data.value[i, ..., 1]
