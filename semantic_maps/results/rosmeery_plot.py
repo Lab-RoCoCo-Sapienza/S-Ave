@@ -76,6 +76,7 @@ class ExperimentSpecs:
     value: np.ndarray
 
 def update_line(num, data, line):
+    print(data)
     line.set_data(data[..., :num])
     return line,
 
