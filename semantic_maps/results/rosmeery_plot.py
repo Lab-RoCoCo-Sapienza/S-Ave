@@ -8,6 +8,8 @@ import os
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
 
 from typing import Any, Dict, List, Tuple
 
@@ -17,6 +19,9 @@ matplotlib.rcParams['pdf.use14corefonts'] = True
 # matplotlib.rcParams['text.usetex'] = True
 matplotlib.rcParams['pdf.fonttype'] = 42
 matplotlib.rcParams['ps.fonttype'] = 42
+
+Writer = animation.writers['ffmpeg']
+writer = Writer(fps=15, metadata=dict(artist='Me'), bitrate=1800)
 
 
 key_to_plot_title = {
@@ -195,6 +200,10 @@ def plot_metrics(save_dir: str, metrics_data: Dict[str, ExperimentSpecs],
         # plt.show()
         plt.savefig(save_path, format='pdf')
         logging.info(f'Figure saved at: {save_path}')
+        
+        line_ani = animation.FuncAnimation(figure, update_line, 25, fargs=(data, l),
+                                   interval=50, blit=True)
+        line_ani.save(save_path+'.mp4', writer=writer)
 
 
 if __name__ == '__main__':
