@@ -77,6 +77,7 @@ class ExperimentSpecs:
 
 def update_line(num, data, line):
     print(data)
+    data = data[0]
     line.set_data(data[..., :num])
     return line,
 
