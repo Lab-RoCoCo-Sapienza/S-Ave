@@ -190,7 +190,7 @@ def plot_metrics(save_dir: str, metrics_data: Dict[str, ExperimentSpecs],
         if metric_key == 'time_s':
             continue
 
-        plt.figure(metric_key)
+        figure = plt.figure(metric_key)
         plot(plot_handle=plt, metrics_data=metric_results)
         configure_plot_info(plot_handle=plt, title=key_to_plot_title[metric_key], xtick_labels=xtick_labels,
                             x_label="time [s]", y_label="Score", legend_pose="upper left",
