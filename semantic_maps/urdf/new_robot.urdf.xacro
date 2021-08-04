@@ -2,12 +2,13 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
 
   <!-- CONSTANTS -->
-  <xacro:property name="height" value="0.5" />
+  <xacro:property name="height" value="0.4" />
   <xacro:property name="base_length" value="0.4" />
-  <xacro:property name="base_width" value="0.2" />
+  <xacro:property name="base_width" value="0.35" />
   <xacro:property name="base_height" value="0.1" />
   <xacro:property name="wheel_length" value="0.05" />
   <xacro:property name="wheel_radius" value="0.1" />
+  <xacro:property name="caster_radius" value="0.06" />
   <xacro:property name="camera_size" value="0.05" />
   <xacro:property name="camera_name" value="xtion" />
   <xacro:property name="M_PI" value="3.1415926535897931" />
@@ -16,7 +17,7 @@
   <!-- BASE LINK -->
   <link name="base_link">
     <visual>
-      <origin xyz="0 0 0.2" rpy="0 0 0" />
+      <origin xyz="0 0 0.25" rpy="0 0 0" />
       <geometry>
         <box size="${base_length} ${base_width} ${height}"/>
       </geometry>
@@ -27,19 +28,19 @@
       </geometry>
     </collision>-->
     <visual>
-      <origin xyz="0 0 -${base_height/2}" rpy="0 0 0" />
+      <origin xyz="-0.14 0 -${base_height/2-0.02}" rpy="0 0 0" />
       <geometry>
-        <sphere radius="${base_height/2}" />
+        <sphere radius="0.075" />
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 -${base_height/2}" rpy="0 0 0" />
+      <origin xyz="-0.14 0 -${base_height/2-0.02}" rpy="0 0 0" />
       <geometry>
-        <sphere radius="${base_height/2}" />
+        <sphere radius="0.075" />
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.6"/>
+      <mass value="3.6"/>
       <inertia ixx="1e-3" ixy="0.0" ixz="0.0" iyy="1e-3" iyz="0.0" izz="1e-3"/>
     </inertial>
   </link>
@@ -64,7 +65,7 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.6"/>
+      <mass value="3.6"/>
       <inertia ixx="1e-3" ixy="0.0" ixz="0.0" iyy="1e-3" iyz="0.0" izz="1e-3"/>
     </inertial>
   </link>
@@ -80,7 +81,7 @@
   <joint name="left_wheel_joint" type="continuous">
     <parent link="base_link" />
     <child  link="left_wheel" />
-    <origin xyz="0.1 0.13 0" />
+    <origin xyz="0.1 0.20 0" />
     <axis rpy="0 0 0" xyz="0 1 0"/>
   </joint>
 
@@ -110,7 +111,7 @@
       </geometry>
     </collision>
     <inertial>
-      <mass value="0.6"/>
+      <mass value="3.6"/>
       <inertia ixx="1e-3" ixy="0.0" ixz="0.0" iyy="1e-3" iyz="0.0" izz="1e-3"/>
     </inertial>
   </link>
@@ -126,7 +127,7 @@
   <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link" />
     <child  link="right_wheel" />
-    <origin xyz="0.1 -0.13 0" />
+    <origin xyz="0.1 -0.20 0" />
     <axis rpy="0 0 0" xyz="0 1 0"/>
   </joint>
 
