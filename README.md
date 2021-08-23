@@ -27,6 +27,10 @@ The folder **srrg** (containing 3 needed packages that are listed below) must al
 * *srrg_core_ros*: `git clone https://gitlab.com/srrg-software/srrg_core_ros.git`
 * *srrg_cmake_modules*: `git clone https://gitlab.com/srrg-software/srrg_cmake_modules.git` </br>
 
+### Frontier-exploration
+The folder needs to be in **catkin_ws/src** folder:
+* *frontier-exploration* : `git clone https://github.com/paulbovbel/frontier_exploration`
+
 ### ncnn
 The **ncnn** package is needed for *yolov5_object_detection_node*, but in order not to encouter any type of error during compilation, it is required to move into **catkin/src** folder and follow these steps:
   1. `$ catkin_create_pkg ncnn` (it creates a ros-package with the name *ncnn*) </br>
@@ -87,4 +91,11 @@ Open 7 terminal windows and launch the commands here presented by following this
   6. `rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/lucrezio/cmd_vel`
   7. `roslaunch semantic_maps yolov5l.launch`
   8. `roslaunch semantic_maps evaluation.launch`
-  
+
+**Frontier-exploration**
+Open 5 terminals and launch the following commands in the exact order in each of the terminal:
+1. `roslaunch semantic_maps gazebo_robot.launch world_name:=phd_office launch_complete_pipeline:=true exploration_mode:=teleop launch_random_walker:=false`
+2. `roslaunch semantic_maps gmapping.launch`
+3. `roslaunch semantic_maps move_base.launch`
+4. `roslaunch semantic_maps rviz_robot.launch`
+5. `roslaunch exploration_server exploration.launch`
