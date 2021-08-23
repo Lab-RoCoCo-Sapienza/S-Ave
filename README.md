@@ -92,7 +92,7 @@ Open 7 terminal windows and launch the commands here presented by following this
   7. `roslaunch semantic_maps yolov5l.launch`
   8. `roslaunch semantic_maps evaluation.launch`
 
-**Frontier-exploration**
+**Frontier-exploration** </br>
 Open 5 terminals and launch the following commands in the exact order in each of the terminal:
 1. `roslaunch semantic_maps gazebo_robot.launch world_name:=phd_office launch_complete_pipeline:=true exploration_mode:=teleop launch_random_walker:=false`
 2. `roslaunch semantic_maps gmapping.launch`
